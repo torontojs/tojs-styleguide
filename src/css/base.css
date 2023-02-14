@@ -1,0 +1,58 @@
+@import './vars.css';
+@import './text.css';
+@import './color-themes.css';
+
+::-webkit-scrollbar {
+	width: var(--scrollbar-size);
+	height: var(--scrollbar-size);
+}
+
+::-webkit-scrollbar-track {
+	border-radius: var(--pill-border-radius);
+	background-color: var(--scrollbar-bg);
+}
+
+::-webkit-scrollbar-thumb {
+	border-radius: var(--pill-border-radius);
+	background-color: var(--theme-color);
+}
+
+html, body {
+	height: 100%;
+	width: 100%;
+	margin: 0;
+}
+
+body {
+	box-sizing: border-box;
+
+	font-family: system-ui, 'Segoe UI', 'Segoe UI Emoji', emoji, sans-serif;
+	font-size: var(--body-text);
+
+	display: flex;
+	flex-direction: column;
+	justify-content: stretch;
+	align-items: stretch;
+
+	background: var(--bg-color);
+	color: var(--text-color);
+
+	scrollbar-width: thin;
+	scrollbar-color: var(--theme-color) var(--scrollbar-bg);
+}
+
+body *, body *::after, body *::before {
+	box-sizing: inherit;
+	font-family: inherit;
+}
+
+main {
+	padding-inline: var(--padding-inline);
+	width: clamp(20rem, 100%, 60rem);
+	margin-inline: auto;
+}
+
+#header-logo {
+	width: 15rem;
+	height: 15rem;
+}

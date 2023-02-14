@@ -1,0 +1,96 @@
+:root {
+	/* Sizes */
+	--body-text: 18px;
+	--small-text: 0.8rem;
+
+	--border-width: 0.1rem;
+	--border-radius: 0.3rem;
+	--pill-border-radius: 100vmax;
+
+	--scrollbar-size: 0.5rem;
+
+	/* Padding */
+	--padding-inline: 0.5rem;
+	--padding-block: 0.3rem;
+	--padding-small: 0.1rem;
+
+	/* Margin */
+	--margin-inline: 0.5rem;
+	--margin-block: 0.3rem;
+	--margin-small: 0.1rem;
+
+	/* Theme colors */
+	--theme-color: #ed342f;
+	--theme-light-color: #f8adab;
+	--theme-dark-color: #5f1513;
+
+	--dark-color: #120606;
+	--dark-gray-color: #5c5856;
+	--light-gray-color: #b9b4ad;
+	--light-color: #fdf7f8;
+
+	/* Base colors */
+	--bg-color: var(--light-color);
+	--dark-bg-color: var(--dark-color);
+	--border-color: var(--dark-gray-color);
+	--dark-border-color: var(--light-gray-color);
+	--text-color: var(--dark-color);
+
+	--accent-color: var(--theme-dark-color);
+	--secondary-color: var(--theme-light-color);
+
+	--scrollbar-bg: rgba(0, 0, 0, 0.2);
+
+	color-scheme: light;
+	accent-color: var(--accent-color);
+}
+
+.theme-dark {
+	/* Base colors */
+	--bg-color: var(--dark-color);
+	--dark-bg-color: var(--light-color);
+	--border-color: var(--light-gray-color);
+	--dark-border-color: var(--dark-gray-color);
+	--text-color: var(--light-color);
+
+	--accent-color: var(--theme-light-color);
+	--secondary-color: var(--theme-dark-color);
+
+	--scrollbar-bg: rgba(255, 255, 255, 0.1);
+
+	color-scheme: dark;
+}
+
+.theme-light {
+	/* Base colors */
+	--bg-color: var(--light-color);
+	--dark-bg-color: var(--dark-color);
+	--border-color: var(--dark-gray-color);
+	--dark-border-color: var(--light-gray-color);
+	--text-color: var(--dark-color);
+
+	--accent-color: var(--theme-dark-color);
+	--secondary-color: var(--theme-light-color);
+
+	--scrollbar-bg: rgba(0, 0, 0, 0.2);
+
+	color-scheme: light;
+}
+
+@media (prefers-color-scheme: dark) {
+	:root {
+		/* Base colors */
+		--bg-color: var(--dark-color);
+		--dark-bg-color: var(--light-color);
+		--border-color: var(--light-gray-color);
+		--dark-border-color: var(--dark-gray-color);
+		--text-color: var(--light-color);
+
+		--accent-color: var(--theme-light-color);
+		--secondary-color: var(--theme-dark-color);
+
+		--scrollbar-bg: rgba(255, 255, 255, 0.1);
+
+		color-scheme: dark;
+	}
+}
