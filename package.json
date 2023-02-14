@@ -1,13 +1,14 @@
 {
 	"name": "tojs-styleguide",
 	"private": true,
-	"displayName": "Toronto JS Style Guide",
+	"displayName": "Toronto JS - Brand Manual & Style Guide",
 	"version": "1.0.0",
-	"shortName": "TOJS Style Guide",
-	"description": "The Toronto JS Style Guide is a living document that describes the style we use at Toronto JS. It is intended to be a reference for current and future contributors to the Toronto JS community who wish to develop or create anything using Toronto JS' branding.",
+	"shortName": "TJS Manual",
+	"description": "The Toronto JS Brand Manual & Style Guide is a living document that describes the style we use at Toronto JS. It is intended to be a reference for current and future contributors to the Toronto JS community who wish to develop or create anything using Toronto JS branding.",
 	"homepage": "https://github.com/torontojs/tojs-styleguide",
 	"keywords": [
 		"style guide",
+		"brand manual",
 		"Toronto",
 		"js",
 		"torontojs",

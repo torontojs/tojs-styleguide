@@ -45,7 +45,6 @@ export default defineConfig(({ mode }) => {
 		categories: ['development', 'utilities', 'reference'],
 		display: 'standalone',
 		orientation: 'portrait',
-		display_override: ['window-controls-overlay'],
 		background_color: env.APP_BACKGROUND_COLOR,
 		theme_color: env.APP_THEME_COLOR,
 		icons: [
