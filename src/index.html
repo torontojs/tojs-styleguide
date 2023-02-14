@@ -57,141 +57,356 @@
 		<link rel="stylesheet" href="/css/base.css" />
 	</head>
 <body>
-	<header>
-		<div class="cd-logo"><img src="/icons/logo.svg" alt="Logo"></div>
+	<dialog id="toc">
+		<form method="dialog">
+			<nav>
+				<h2>Table of Contents</h2>
 
-		<nav>
-			<ul class="cd-main-nav">
-				<li><a href="#branding">Branding</a></li>
-				<li><a href="#colors">Colors</a></li>
-				<li><a href="#typography">Typography</a></li>
-				<li><a href="#buttons">Buttons</a></li>
-				<li><a href="#icons">Icons</a></li>
-				<li><a href="#form">Form</a></li>
-			</ul> <!-- cd-main-nav -->
-		</nav>
+				<ol>
+					<li>
+						<details>
+							<summary><a href="#hello-world">Hello World!</a></summary>
+							<ol>
+								<li><a href="#history">History</a></li>
+								<li><a href="#principles">Principles</a></li>
+								<li><a href="#code-of-conduct">Code of conduct</a></li>
+							</ol>
+						</details>
+					</li>
+					<li>
+						<details>
+							<summary><a href="#typography">Typography</a></summary>
+							<ol>
+								<li><a href="#font-families">Font families</a></li>
+								<li><a href="#using-the-fonts">Using the fonts</a></li>
+							</ol>
+						</details>
+					</li>
+					<li>
+						<details>
+							<summary><a href="#colours">Colours</a></summary>
+							<ol>
+								<li><a href="#colour-palette">Colour palette</a></li>
+								<li><a href="#colour-usage">Colour usage</a></li>
+							</ol>
+						</details>
+					</li>
 
-		<a href="/assets/assets-download-file.zip" class="cd-download"><span>Download assets</span></a>
-		<a href="#0" class="cd-nav-trigger">Menu<span></span></a>
-	</header>
+					<li>
+						<a href="#logo">Logo</a>
+					</li>
+
+					<li>
+						<summary>
+							<details><a href="#branding">Branding</a></details>
+							<ol>
+								<li><a href="#events">Events</a></li>
+								<li><a href="#graphic-material">Graphic Material</a></li>
+							</ol>
+						</summary>
+					</li>
+
+					<li>
+						<summary>
+							<details><a href="#social-media">Social Media</a></details>
+							<ol>
+								<li><a href="#avatars">Avatars</a></li>
+								<li><a href="#cover-images">Cover Images</a></li>
+								<li><a href="#posts">Posts</a></li>
+							</ol>
+						</summary>
+					</li>
+				</ol>
+			</nav>
+		</form>
+	</dialog>
 
 	<main>
-		<h1>Style Guide 1.0</h1>
+		<header>
+			<div id="header-logo"><img src="/assets/logo.svg" alt="Logo"></div>
+			<h1>Brand Manual & Style Guide</h1>
 
-		<section id="branding" class="cd-branding">
-			<h2>Branding</h2>
+			<blockquote>
+				<p>Version 2.0</p>
+			</blockquote>
 
-			<ul>
-				<li class="cd-box"><img src="assets/branding/logo-ver-1.jpg" alt="Logo version 1"></li>
-				<li class="cd-box"><img src="assets/branding/logo-ver-2.jpg" alt="Logo version 2"></li>
-			</ul>
+			<blockquote>
+				<p>The Toronto JS Brand Manual & Style Guide is a living document that describes the style we use at Toronto JS. It is intended to be a reference for current and future contributors to the Toronto JS community who wish to develop or create anything using Toronto JS branding.</p>
+				<footer><cite>This project's <code>package.json</code></cite></footer>
+			</blockquote>
 
-			<ul>
-				<li><img src="assets/branding/touch-icon-1.jpg" alt="Touch Icon"></li>
-				<li><img src="/favicon.ico" alt="Favicon"></li>
-			</ul>
-		</section>
+			<aside>
+				<a href="#menu">Menu</a>
+				<a href="/assets/assets-download-file.zip" class="cd-download">Download assets</a>
+			</aside>
+		</header>
 
-		<section id="colors" class="cd-colors">
-			<h2>Colors</h2>
+		<article>
+			<h2 id="hello-world">
+				Hello World!
+				<a class="header-link" href="#hello-world">🔗</a>
+			</h2>
 
-			<ul>
-				<li class="cd-box">
-					<div class="cd-color-swatch"></div>
-				</li>
+			<p>Welcome to the toronto JS Brand Manual & Style Guide, on it we will cover all topics related to how branding works on the toronto JS community.</p>
+			<p>This guide is written so anyone who wants to create graphical materials, social media posts, or web sites have a guide to follow so content has some resemblance to each other and don't look too disconected.</p>
 
-				<li class="cd-box">
-					<div class="cd-color-swatch"></div>
-				</li>
-
-				<li class="cd-box">
-					<div class="cd-color-swatch"></div>
-				</li>
-
-				<li class="cd-box">
-					<div class="cd-color-swatch"></div>
-				</li>
-
-				<li class="cd-box">
-					<div class="cd-color-swatch"></div>
-				</li>
-			</ul>
-		</section>
-
-		<section id="typography" class="cd-typography">
-			<h2>Typography</h2>
-
-			<div class="cd-box">
-				<h1>Heading, <span></span></h1>
-				<p>Aa - <span></span>. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis voluptate distinctio reprehenderit, autem deleniti ad <a href="#0">voluptatum eaque</a>. Optio ea aperiam nisi distinctio nemo repellat, voluptate fugiat. Quidem neque illum, blanditiis!</p>
-				<h2>Heading 2 -- H2</h2>
-				<h3>Heading 3 -- H3</h3>
+			<h3 id="history">
+				History
+				<a class="header-link" href="#history">🔗</a>
+			</h3>
+			<div class="timeline">
+				<section>
+					<h4>2010</h4>
+					<p>@Taz Singh started Toronto JavaScript as it’s known today back in 2010 in order to get folks together to talk about the JavaScript applications they were building. He hosted socials & tech talks initially.</p>
+					<p>Taz worked with Dann Toliver to bring JS Workshops into TorontoJS. "JS Workshop" has probably run longer than Toronto JS.</p>
+				</section>
+				<section>
+					<h4>2014</h4>
+					<p>@Matthew Mihok volunteered to help.</p>
+					<p>He further consolidated Paul Dowman’s Code Club events into TorontoJS, so we can all together focus our energy towards a common goal - the Toronto & Canadian JavaScript communities at large.</p>
+					<p>Paul Dowman’s JS Code Club joins TorontoJS, and Paul joins the Organizers. Paul also created an agency called OKGrow. As a way of building rapport, he created JS Code Club.</p>
+				</section>
+				<section>
+					<h4>2015</h4>
+					<p>Taz moves away to UK, stays as Ambassador for TorontoJS in the UK.</p>
+					<p>Taz shuts down the TorontoJS Inc. Corporation and Paul, Dann, Mihok recreate it as a non-profit corporation, with each listed as a Director officially.</p>
+				</section>
+				<section>
+					<h4>2016</h4>
+					<p>Taz, Dann, Paul, Mihok are Organizers.</p>
+					<p>Paul joins Shopify and leaves TorontoJS as an Organizer, is removed from the corporations Director role.</p>
+				</section>
+				<section>
+					<h4>2019</h4>
+					<p>Mihok takes over majority of planning and execution of events and has been running TorontoJS alone for 2 years, with Dann acting as an advisor. Simistern and Alex Wilmer help with hosting some events. Here and there, @Evert Pot and @Nicole Chung give talks and workshops.</p>
+					<p>@Sherry Yang starts volunteering with TJS.</p>
+				</section>
+				<section>
+					<h4>2020</h4>
+					<p>@Sherry Yang, who changed BeerScript for the best to "JS Social" moves out to Calgary and continues helping with hosting and facilitating from a distance!</p>
+					<p>@Jen Chan starts as an overenthusiastic moderator in Aug 2020 and grows out a list of admins and investigators.</p>
+					<p>Meanwhile, Evert and Nicole continue to give talks and workshops.</p>
+					<p>Covid happens; all gatherings move online.</p>
+				</section>
+				<section>
+					<h4>2021</h4>
+					<p>Jen joins Mihok as an Organizer. We push out a Code of Conduct, a volunteer program, and plan events a quarter ahead!</p>
+				</section>
 			</div>
-		</section>
 
-		<section id="buttons" class="cd-buttons">
-			<h2>Buttons</h2>
+			<h3 id="principles">
+				Principles
+				<a class="header-link" href="#principles">🔗</a>
+			</h3>
 
-			<div class="cd-box">
-				<button class="btn">Normal</button>
-				<button class="btn btn-success">Success</button>
-				<button class="btn btn-alert">Alert</button>
-				<button class="btn btn-outline">Outline</button>
-			</div>
+			<h3 id="code-of-conduct">
+				Code of conduct
+				<a class="header-link" href="#code-of-conduct">🔗</a>
+			</h3>
+		</article>
 
-		</section>
+		<article>
+			<h2 id="typography">
+				Typography
+				<a class="header-link" href="#typography">🔗</a>
+			</h2>
 
-	<!-- 	<section id="icons" class="cd-icons">
-			<h2>Icons</h2>
+			<h3 id="font-families">
+				Font families
+				<a class="header-link" href="#font-families">🔗</a>
+			</h3>
 
-			<ul class="cd-box">
-				<li class="cd-icon-1"></li>
-				<li class="cd-icon-2"></li>
-				<li class="cd-icon-3"></li>
-				<li class="cd-icon-4"></li>
-				<li class="cd-icon-5"></li>
-				<li class="cd-icon-6"></li>
-				<li class="cd-icon-7"></li>
-				<li class="cd-icon-8"></li>
-			</ul>
-		</section> -->
+			<blockquote>
+				<h1>Toronto JS</h1>
+				<p>No, no, no! Yes, yes. A bit. But she's got a wart. Well, I got better. We shall say 'Ni' again to you, if you do not appease us. We want a shrubbery!!</p>
+				<p>Oh! Come and see the violence inherent in the system! Help, help, I'm being repressed! The nose? No, no, no! Yes, yes. A bit. But she's got a wart. <strong> Found them?</strong> <em> In Mercia?!</em> The coconut's tropical!</p>
 
-		<section id="form" class="cd-form">
-			<h2>Form</h2>
+				<footer><cite>Montserrat - Medium/Extra bold</cite></footer>
+			</blockquote>
 
-			<div class="cd-box">
-				<form>
-					<fieldset>
-						<input type="text">
-						<input class="success" type="text">
-						<input class="alert" type="text">
-					</fieldset>
+			<blockquote>
+				<h1>Toronto JS</h1>
+				<p>Now, look here, my good man. How do you know she is a witch? What do you mean? Knights of Ni, we are but simple travelers who seek the enchanter who lives beyond these woods.</p>
+				<p>Bring her forward! And this isn't my nose. This is a false one. Ni! Ni! <strong> Ni!</strong> <em> Ni!</em> Knights of Ni, we are but simple travelers who seek the enchanter who lives beyond these woods.</p>
 
-					<fieldset>
-						<div class="cd-input-wrapper">
-							<input type="radio" name="radioButton" id="radio1">
-	      					<label class="radio-label" for="radio1">Choice 1</label>
-      					</div>
+				<footer><cite>Source Sans Pro - Black</cite></footer>
+			</blockquote>
 
-						<div class="cd-input-wrapper">
-							<input type="checkbox" id="checkbox1">
-	      					<label class="checkbox-label" for="checkbox1">Option 1</label>
-      					</div>
+			<blockquote>
+				<h1>Toronto JS</h1>
+				<p>Bring her forward! Be quiet! Oh, ow! Well, what do you want? He hasn't got shit all over him. Now, look here, my good man.</p>
+				<p>Why? He hasn't got shit all over him. <strong> Shut up!</strong> <em> We found them.</em> Knights of Ni, we are but simple travelers who seek the enchanter who lives beyond these woods.</p>
 
-						<div class="cd-input-wrapper cd-select">
-	      					<select name="select-this" id="select-this">
-					          <option value="0">Select</option>
-					          <option value="1">Option 1</option>
-					          <option value="2">Option 2</option>
-					          <option value="2">Option 3</option>
-					      	</select>
-				      	</div>
-					</fieldset>
-				</form>
-			</div>
-		</section>
+				<footer><cite>Source Code Pro - Regular</cite></footer>
+			</blockquote>
+
+			<h3 id="using-the-fonts">
+				Using the fonts
+				<a class="header-link" href="#using-the-fonts">🔗</a>
+			</h3>
+
+			<dl>
+				<dd>Montserrat - Medium/extra bold</dd>
+				<dt>
+					<p>Montserrat is the main font. It’s intended use is for body text and headers.</p>
+					<p>When paired with other bold text like the "JS" from Toronto JS' logo it should be used in <em>medium</em> weight to create visual contrast with the pairing text. The medium weight is also to be used for "main headings", where sufficient size difference exists between the body text and header.</p>
+					<p>For headers that are too close to text and the size difference is not enough to represent a "break" between text and header, the <em>extra bold</em> weight should be used.</p>
+					<p>On body text <em>italic</em> and <strong>bold</strong> text can be used to create emphasis when needed.</p>
+				</dt>
+
+				<dd>Source Sans Pro - Black</dd>
+				<dt>
+					<p>Used only for small details, like the "JS" in the Toronto JS logo or places where it will be the only piece of text present. This font intent is to draw attention to the text.</p>
+				</dt>
+
+				<dd>Source Code Pro - Regular</dd>
+				<dt>Used for code blocks and subtle emphasis on specific words and phrases. Like the "online" or "in person" mark on an event art.</dt>
+			</dl>
+		</article>
+
+		<article>
+			<h2 id="colours">
+				Colours
+				<a class="header-link" href="#colours">🔗</a>
+			</h2>
+
+			<h3 id="colour-palette">
+				Colour palette
+				<a class="header-link" href="#colour-palette">🔗</a>
+			</h3>
+
+			<section class="align-center">
+				<div class="color-card bg-theme-dark text-light">
+					<h4>"CN Tower at night"</h4>
+					<span><code>#5F1513</code></span>
+					<br/>
+					<span>H:<code>2</code> S:<code>67</code> L:<code>22</code></span>
+				</div>
+
+				<div class="color-card bg-theme">
+					<h4>"Toronto JS Red"</h4>
+					<span><code>#ED342F</code></span>
+					<br/>
+					<span>H:<code>2</code> S:<code>83</code> L:<code>56</code></span>
+				</div>
+
+				<div class="color-card bg-theme-light text-dark">
+					<h4>"Breaking News"</h4>
+					<span><code>#F8ADAB</code></span>
+					<br/>
+					<span>H:<code>2</code> S:<code>85</code> L:<code>82</code></span>
+				</div>
+
+				<br/>
+
+				<div class="color-card bg-dark text-light">
+					<h4>"Raccon Stripes"</h4>
+					<span><code>#120606</code></span>
+					<br/>
+					<span>H:<code>0</code> S:<code>50</code> L:<code>5</code></span>
+				</div>
+
+				<div class="color-card bg-dark-gray text-light">
+					<h4>"Downtown Street"</h4>
+					<span><code>#5C5856</code></span>
+					<br/>
+					<span>H:<code>18</code> S:<code>4</code> L:<code>35</code></span>
+				</div>
+
+				<div class="color-card bg-light-gray text-dark">
+					<h4>"Slushy Snow"</h4>
+					<span><code>#B9B4AD</code></span>
+					<br/>
+					<span>H:<code>34</code> S:<code>8</code> L:<code>70</code></span>
+				</div>
+
+				<div class="color-card bg-light text-dark">
+					<h4>"Wintery Sky"</h4>
+					<span><code>#FDF7F8</code></span>
+					<br/>
+					<span>H:<code>354</code> S:<code>60</code> L:<code>98</code></span>
+				</div>
+			</section>
+
+			<h3 id="colour-usage">
+				Colour usage
+				<a class="header-link" href="#colour-usage">🔗</a>
+			</h3>
+
+			<p>he main colour is <strong>"Toronto JS Red"</strong>, it has two accent shades, one darker (<strong>"Breaking news"</strong>) and one lighter (<strong>"CN Tower lights"</strong>). Those are the colours to be used in most contexts to highlight some details or make things "pop".</p>
+			<p>When using against a dark background the preferred pairing is the main colour follower by the lighter accent. Whereas the pairing for a light background should be the opposite, main colour followed by the darker accent.</p>
+
+			<section>
+				<div class="color-example bg-light text-dark">
+					<h4>Light Background</h4>
+					<p>We found them. Who's that then? Did you dress her up like this? Why? I have to push the pram a lot. I have to push the pram a lot.</p>
+					<div class="align-center">
+						<div class="color-card bg-theme-dark"></div>
+						<div class="color-card bg-theme"></div>
+						<div class="color-card bg-theme-light"></div>
+					</div>
+					<p>It's only a model. What a strange person. Knights of Ni, we are but simple travelers who seek the enchanter who lives beyond these woods. No, no, no! Yes, yes. A bit. But she's got a wart. Ni! <strong> Ni!</strong> <em> Ni!</em> Ni!</p>
+				</div>
+
+				<div class="color-example bg-dark text-light">
+					<h4>Dark Background</h4>
+					<p>Burn her anyway! And this isn't my nose. This is a false one. Oh, ow! It's only a model. Knights of Ni, we are but simple travelers who seek the enchanter who lives beyond these woods. You don't frighten us, English pig-dogs! Go and boil your bottoms, sons of a silly person! I blow my nose at you, so-called Ah-thoor Keeng, you and all your silly English K-n-n-n-n-n-n-n-niggits!</p>
+					<div class="align-center">
+						<div class="color-card bg-theme-dark"></div>
+						<div class="color-card bg-theme"></div>
+						<div class="color-card bg-theme-light"></div>
+					</div>
+					<p>I don't want to talk to you no more, you empty-headed animal food trough water! I fart in your general direction! Your mother was a hamster and your father smelt of elderberries! Now leave before I am forced to taunt you a second time!</p>
+				</div>
+			</section>
+			<p>There are also four neutral shades to be used, a black one (<strong>"Racoon stripes"</strong>), a white one (<strong>"Winter sky"</strong>) and two greys (<strong>"Downtown street"</strong> and <strong>"Slushy snow"</strong>).The black and white shades are to be used mainly for backgrounds and the basis of light and dark themes.The shades of grey serve to add highlights, depth or details to the other elements they are paired with.</p>
+		</article>
+
+		<article>
+			<h2 id="logo">
+				Logo
+				<a class="header-link" href="#logo">🔗</a>
+			</h2>
+		</article>
+
+		<article>
+			<h2 id="branding">
+				Branding
+				<a class="header-link" href="#branding">🔗</a>
+			</h2>
+
+			<h3 id="events">
+				Events
+				<a class="header-link" href="#events">🔗</a>
+			</h3>
+
+			<h3 id="graphic-material">
+				Graphic Material
+				<a class="header-link" href="#graphic-material">🔗</a>
+			</h3>
+		</article>
+
+		<article>
+			<h2 id="social-media">
+				Social Media
+				<a class="header-link" href="#social-media">🔗</a>
+			</h2>
+
+			<h3 id="avatars">
+				Avatars
+				<a class="header-link" href="#avatars">🔗</a>
+			</h3>
+
+			<h3 id="cover-images">
+				Cover Images
+				<a class="header-link" href="#cover-images">🔗</a>
+			</h3>
+
+			<h3 id="posts">
+				Posts
+				<a class="header-link" href="#posts">🔗</a>
+			</h3>
+		</article>
 	</main>
-<script src="/js/jquery-2.1.1.js"></script>
-<script src="/js/main.js"></script> <!-- Resource jQuery -->
 </body>
 </html>
