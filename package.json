@@ -21,6 +21,9 @@
 		"type": "git",
 		"url": "git+https://github.com/torontojs/tojs-styleguide.git"
 	},
+	"author": {
+		"name": "Toronto JS"
+	},
 	"engines": {
 		"node": ">=18.0.0"
 	},

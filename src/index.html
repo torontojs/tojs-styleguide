@@ -5,7 +5,6 @@
 		<meta name="viewport" content="width=device-width,initial-scale=1" />
 
 		<title>{{ APP_NAME }}</title>
-		<title>Style Guide | Toronto JS</title>
 
 		<!-- App Metadata -->
 		<link rel="icon" href="/icons/favicon.svg" />
@@ -25,7 +24,7 @@
 
 		<!-- Apple icons -->
 		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-		<link rel="apple-touch-icon" href="/icons/transparent/apple-icon-180.png">
+		<link rel="apple-touch-icon" href="{{ APP_APPLE_ICON }}">
 
 		<link rel="apple-touch-startup-image" href="/splash/apple-splash-2048-2732.png" media="(device-width: 1024px) and (device-height: 1366px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)">
 		<link rel="apple-touch-startup-image" href="/splash/apple-splash-2732-2048.png" media="(device-width: 1024px) and (device-height: 1366px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)">
@@ -59,7 +58,7 @@
 	</head>
 <body>
 	<header>
-		<div class="cd-logo"><img src="assets/logo.svg" alt="Logo"></div>
+		<div class="cd-logo"><img src="/icons/logo.svg" alt="Logo"></div>
 
 		<nav>
 			<ul class="cd-main-nav">
@@ -72,7 +71,7 @@
 			</ul> <!-- cd-main-nav -->
 		</nav>
 
-		<a href="assets/assets-download-file.zip" class="cd-download"><span>Download assets</span></a>
+		<a href="/assets/assets-download-file.zip" class="cd-download"><span>Download assets</span></a>
 		<a href="#0" class="cd-nav-trigger">Menu<span></span></a>
 	</header>
 
@@ -192,7 +191,7 @@
 			</div>
 		</section>
 	</main>
-<script src="js/jquery-2.1.1.js"></script>
-<script src="js/main.js"></script> <!-- Resource jQuery -->
+<script src="/js/jquery-2.1.1.js"></script>
+<script src="/js/main.js"></script> <!-- Resource jQuery -->
 </body>
 </html>

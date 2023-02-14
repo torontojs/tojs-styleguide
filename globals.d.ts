@@ -11,7 +11,7 @@ interface PackageJsonVariables {
 	keywords: string[],
 	author: {
 		name: string,
-		email: string
+		email?: string
 	},
 	version: string,
 	[key: string]: Serializable
