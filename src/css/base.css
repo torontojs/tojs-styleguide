@@ -1,7 +1,7 @@
 @import './vars.css';
 @import './fonts.css';
 @import './text.css';
-@import './color-themes.css';
+@import './colors.css';
 
 ::-webkit-scrollbar {
 	width: var(--scrollbar-size);
