@@ -3,6 +3,7 @@
 @import './text.css';
 @import './colors.css';
 @import './menu.css';
+@import './logo.css';
 
 ::-webkit-scrollbar {
 	width: var(--scrollbar-size);
@@ -44,18 +45,20 @@ body {
 	scrollbar-color: var(--theme-color) var(--scrollbar-bg);
 }
 
-body *, body *::after, body *::before {
+*, *::after, *::before {
 	box-sizing: inherit;
 	font-family: inherit;
 }
 
 main {
 	padding-inline: var(--padding-inline);
-	width: clamp(20rem, 100%, 60rem);
+	width: clamp(20rem, calc(100% - (var(--button-size) * 3)), 60rem);
 	margin-inline: auto;
 }
 
 #header-logo {
 	width: 15rem;
 	height: 15rem;
+	margin-inline: auto;
+	margin-block-start: var(--margin-inline);
 }

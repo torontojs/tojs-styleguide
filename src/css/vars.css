@@ -10,6 +10,8 @@
 	--scrollbar-size: 0.5rem;
 
 	--logo-size: clamp(15rem, 30vmax, 25rem);
+	--button-size: 4rem;
+
 	/* Padding */
 	--padding-inline: 0.5rem;
 	--padding-block: 0.3rem;

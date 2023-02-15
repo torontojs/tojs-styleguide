@@ -1,0 +1,16 @@
+.logo-wrapper {
+	text-align: center;
+}
+
+.logo {
+	width: var(--logo-size);
+	height: var(--logo-size);
+	object-fit: contain;
+}
+
+#logo-anatomy-description {
+	display: grid;
+	grid-template-columns: 1fr auto 1fr;
+	grid-template-rows: 1fr;
+	place-items: center;
+}
