@@ -98,6 +98,7 @@ export default defineConfig(({ mode }) => {
 				minify: true,
 				includeAssets: ['/icons/favicon.svg'],
 				manifest: manifest as Partial<ManifestOptions>,
+				scope: env.APP_PUBLIC_URL,
 				workbox: {
 					cleanupOutdatedCaches: true,
 					clientsClaim: true,
@@ -126,6 +127,7 @@ export default defineConfig(({ mode }) => {
 				}
 			})
 		],
+		base: env.APP_PUBLIC_URL,
 		envPrefix: 'APP_',
 		envDir: '../',
 		root: 'src',
