@@ -1,7 +1,6 @@
 import './logo.ts';
 
-import { registerTocMenuButton } from './buttons';
-import { registerTocLinksActions } from './toc';
+import { registerTocLinksActions, registerTocMenuButton } from './toc';
 
 window.addEventListener('DOMContentLoaded', () => {
 	registerTocMenuButton();
