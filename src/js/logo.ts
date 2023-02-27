@@ -24,14 +24,31 @@ export class LogoWithBackgroundSelector extends HTMLElement {
 					--logo-background-color: ${Object.values(this.#colors)[0]};
 				}
 
+				:host([no-color-picker]) #color-picker {
+					display: none;
+				}
+
 				#wrapper {
-					display: inline-flex;
+					display: flex;
 					width: fit-content;
+					height: fit-content;
+					margin-inline: auto;
+					text-align: center;
 					background-color: var(--logo-background-color);
 				}
 
 				#color-picker {
+					text-align: center;
 					margin: var(--margin-block) var(--margin-inline);
+				}
+
+				#download {
+					margin-block-start: 1rem;
+					display: flex;
+					place-items: center;
+					gap: 1rem;
+					justify-content: center;
+					flex-wrap: wrap;
 				}
 			</style>
 			<div id="wrapper">
@@ -44,9 +61,17 @@ export class LogoWithBackgroundSelector extends HTMLElement {
 					${Object.entries(this.#colors).map(([name, color]) => `<option value="${color}">${name}</option>`).join('')}
 				</datalist>
 			</div>
+			<div id="download">
+				<button type="button" id="download-svg">💾 Download SVG</button>
+				<button type="button" id="download-png">💾 Download PNG</button>
+			</div>
 		`;
 
 		this.setAttribute('color', Object.values(this.#colors)[0]);
+
+		if (this.hasAttribute('no-color-picker')) {
+			this.style.setProperty('--logo-background-color', 'transparent');
+		}
 	}
 
 	#getInvertFilterForColor(color: string) {
@@ -77,6 +102,35 @@ export class LogoWithBackgroundSelector extends HTMLElement {
 
 		(this.#root.querySelector('slot')?.assignedElements() as HTMLElement[]).forEach((child) => {
 			child.style.filter = this.#getInvertFilterForColor(this.getAttribute('color') ?? '#ffffff');
+		});
+
+		this.#root.querySelector('#download-svg')?.addEventListener('click', () => {
+			const img = this.querySelector('img') as HTMLImageElement;
+			const link = document.createElement('a');
+
+			link.download = `toronto-js-${this.getAttribute('file-name')}.svg`;
+			link.href = img.src;
+			link.click();
+		});
+
+
+		this.#root.querySelector('#download-png')?.addEventListener('click', () => {
+			const img = this.querySelector('img') as HTMLImageElement;
+			const canvas = document.createElement('canvas');
+			const ctx = canvas.getContext('2d');
+			const MIN_IMG_SIZE = 1024;
+
+			canvas.width = Math.max(img.naturalWidth, MIN_IMG_SIZE);
+			canvas.height = Math.max(img.naturalHeight, MIN_IMG_SIZE);
+
+			ctx?.drawImage(img, 0, 0);
+
+			const link = document.createElement('a');
+			const fileName = this.getAttribute('file-name');
+
+			link.download = `toronto-js${fileName ? `-${fileName}` : ''}.png`;
+			link.href = canvas.toDataURL('image/png');
+			link.click();
 		});
 	}
 
