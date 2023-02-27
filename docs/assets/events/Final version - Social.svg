@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg width="100%" height="100%" viewBox="0 0 2000 1240" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;">
+    <g transform="matrix(1,0,0,1,-2018,-3963)">
+        <g id="Final-version---Social" serif:id="Final version - Social" transform="matrix(1.14063,0,0,1,17.4129,2722.84)">
+            <rect x="1753.94" y="1240.16" width="1753.42" height="1240" style="fill:none;"/>
+            <clipPath id="_clip1">
+                <rect x="1753.94" y="1240.16" width="1753.42" height="1240"/>
+            </clipPath>
+            <g clip-path="url(#_clip1)">
+                <g transform="matrix(28.281,0,0,19.0769,-706.51,648.773)">
+                    <rect x="87" y="31" width="62" height="65" style="fill:rgb(18,6,6);"/>
+                </g>
+                <g transform="matrix(0.876711,0,0,1,-7449.51,0.15748)">
+                    <g transform="matrix(1,0,-0.125603,1.02057,4146.49,-51.0287)">
+                        <rect x="6090" y="50" width="783" height="2430.32" style="fill:rgb(237,52,47);fill-opacity:0.15;"/>
+                    </g>
+                    <g transform="matrix(1,0,-0.0355625,1.02057,4018.91,-51.0287)">
+                        <rect x="6090" y="50" width="783" height="2430.32" style="fill:rgb(237,52,47);fill-opacity:0.3;"/>
+                    </g>
+                    <g transform="matrix(1,0,0.24376,1.02057,3718.11,-51.0287)">
+                        <rect x="6090" y="50" width="783" height="2430.32" style="fill:rgb(237,52,47);fill-opacity:0.5;"/>
+                    </g>
+                    <g transform="matrix(1.12962,0,0.277813,1.02057,2930.21,-51.0287)">
+                        <rect x="6090" y="50" width="783" height="2430.32" style="fill:rgb(237,52,47);"/>
+                    </g>
+                </g>
+                <g transform="matrix(3.40219,0,0,3.88063,1255.14,0.248739)">
+                    <path d="M101.7,191.3L175.816,827.5L87.6,827.5C87.6,827.5 107.5,253 98.6,208.3L101.7,191.3Z" style="fill:rgb(211,211,227);fill-rule:nonzero;"/>
+                    <path d="M123.7,174.3L116.7,176.3L101.7,191.3L175.816,827.5L270.723,827.5L123.7,174.3Z" style="fill:rgb(188,185,205);fill-rule:nonzero;"/>
+                    <path d="M123.7,174.3L146.7,186.3C146.7,186.3 219.728,502.5 323.728,827.5L270.723,827.5L123.7,174.3Z" style="fill:rgb(155,155,169);fill-rule:nonzero;"/>
+                </g>
+                <g transform="matrix(1.17513,0,0,1.17533,-1830.48,1593.11)">
+                    <g transform="matrix(3.36047,0,0,3.8324,-4200.09,-7342.79)">
+                        <text x="2444.43px" y="1977.84px" style="font-family:'MontserratRoman-Medium', 'Montserrat';font-weight:100;font-size:48.931px;fill:rgb(237,52,47);">Soc<tspan x="2529.86px " y="1977.84px ">i</tspan>al</text>
+                    </g>
+                    <g transform="matrix(2.61099,0,0,2.97767,-2364.1,-5534.08)">
+                        <text x="2444.43px" y="1977.84px" style="font-family:'SourceCodePro-Regular', 'Source Code Pro', monospace;font-size:33.588px;fill:rgb(248,173,171);">online</text>
+                    </g>
+                    <g transform="matrix(0.738274,0,0,0.841954,2019.99,-1083.36)">
+                        <text x="2429.51px" y="1567.4px" style="font-family:'SourceSansPro-Black', 'Source Sans Pro', sans-serif;font-weight:900;font-size:237.573px;fill:rgb(253,247,248);">JS</text>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
