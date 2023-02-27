@@ -141,7 +141,7 @@ export default defineConfig(({ mode }) => {
 		build: {
 			target: 'esnext',
 			emptyOutDir: true,
-			outDir: '../dist',
+			outDir: '../docs',
 			rollupOptions: {
 				output: {
 					generatedCode: 'es2015',
