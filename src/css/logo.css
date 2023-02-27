@@ -14,3 +14,8 @@
 	grid-template-rows: 1fr;
 	place-items: center;
 }
+
+.graphic {
+	width: clamp(20rem, calc(90vw - (var(--button-size) * 3)), 60rem);
+	object-fit: contain;
+}
