@@ -5,7 +5,7 @@
 	font-style: normal;
 	font-weight: 300;
 	font-display: swap;
-	src: url('../assets/fonts/Montserrat-VariableFont_wght.ttf') format('truetype');
+	src: url('./fonts/Montserrat-VariableFont_wght.ttf') format('truetype');
 }
 
 @font-face {
@@ -13,7 +13,7 @@
 	font-style: italic;
 	font-weight: 300;
 	font-display: swap;
-	src: url('../assets/fonts/Montserrat-Italic-VariableFont_wght.ttf') format('truetype');
+	src: url('./fonts/Montserrat-Italic-VariableFont_wght.ttf') format('truetype');
 }
 
 @font-face {
@@ -21,7 +21,7 @@
 	font-style: normal;
 	font-weight: 900;
 	font-display: swap;
-	src: url('../assets/fonts/Montserrat-VariableFont_wght.ttf') format('truetype');
+	src: url('./fonts/Montserrat-VariableFont_wght.ttf') format('truetype');
 }
 
 @font-face {
@@ -29,7 +29,7 @@
 	font-style: italic;
 	font-weight: 900;
 	font-display: swap;
-	src: url('../assets/fonts/Montserrat-Italic-VariableFont_wght.ttf') format('truetype');
+	src: url('./fonts/Montserrat-Italic-VariableFont_wght.ttf') format('truetype');
 }
 
 @font-face {
@@ -37,7 +37,7 @@
 	font-style: normal;
 	font-weight: 400;
 	font-display: swap;
-	src: url('../assets/fonts/SourceCodePro-VariableFont_wght.ttf') format('truetype');
+	src: url('./fonts/SourceCodePro-VariableFont_wght.ttf') format('truetype');
 }
 
 @font-face {
@@ -45,7 +45,7 @@
 	font-style: italic;
 	font-weight: 400;
 	font-display: swap;
-	src: url('../assets/fonts/SourceCodePro-Italic-VariableFont_wght.ttf') format('truetype');
+	src: url('./fonts/SourceCodePro-Italic-VariableFont_wght.ttf') format('truetype');
 }
 
 @font-face {
@@ -53,7 +53,7 @@
 	font-style: normal;
 	font-weight: 700;
 	font-display: swap;
-	src: url('../assets/fonts/SourceCodePro-VariableFont_wght.ttf') format('truetype');
+	src: url('./fonts/SourceCodePro-VariableFont_wght.ttf') format('truetype');
 }
 
 @font-face {
@@ -61,7 +61,7 @@
 	font-style: italic;
 	font-weight: 700;
 	font-display: swap;
-	src: url('../assets/fonts/SourceCodePro-Italic-VariableFont_wght.ttf') format('truetype');
+	src: url('./fonts/SourceCodePro-Italic-VariableFont_wght.ttf') format('truetype');
 }
 
 @font-face {
@@ -69,7 +69,7 @@
 	font-style: normal;
 	font-weight: 900;
 	font-display: swap;
-	src: url('../assets/fonts/SourceSans3-VariableFont_wght.ttf') format('truetype');
+	src: url('./fonts/SourceSans3-VariableFont_wght.ttf') format('truetype');
 }
 
 @font-face {
@@ -77,5 +77,5 @@
 	font-style: italic;
 	font-weight: 900;
 	font-display: swap;
-	src: url('../assets/fonts/SourceSans3-Italic-VariableFont_wght.ttf') format('truetype');
+	src: url('./fonts/SourceSans3-Italic-VariableFont_wght.ttf') format('truetype');
 }
