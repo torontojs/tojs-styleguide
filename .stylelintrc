@@ -1,5 +1,5 @@
 {
-	"ignoreFiles": ["./dist/**/*"],
+	"ignoreFiles": ["./dist/**/*", "./docs/**/*"],
 	"rules": {
 		"color-no-invalid-hex": true,
 		"font-family-no-duplicate-names": true,
