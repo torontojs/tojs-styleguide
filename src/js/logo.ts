@@ -1,17 +1,9 @@
+import { colors } from './constants';
+
 export class LogoWithBackgroundSelector extends HTMLElement {
 	static get observedAttributes() { return ['color']; }
 
 	#root: ShadowRoot;
-
-	#colors = {
-		'Toronto JS Red': '#ED342F',
-		'CN tower at Night': '#5F1513',
-		'Breaking News': '#F8ADAB',
-		'Raccon Stripes': '#120606',
-		'Downtown street': '#5C5856',
-		'Slushy Snow': '#B9B4AD',
-		'Wintery Sky': '#FDF7F8'
-	};
 
 	constructor() {
 		super();
@@ -21,7 +13,7 @@ export class LogoWithBackgroundSelector extends HTMLElement {
 			<style>
 				:host {
 					display: block;
-					--logo-background-color: ${Object.values(this.#colors)[0]};
+					--logo-background-color: ${Object.values(colors)[0]};
 				}
 
 				:host([no-color-picker]) #color-picker {
@@ -56,9 +48,9 @@ export class LogoWithBackgroundSelector extends HTMLElement {
 			</div>
 			<div id="color-picker">
 				<label for="monochrome-colors">Pick a background color:</label>
-				<input id="monochrome-colors" list="monochrome-colors-suggestion" type="color" value="${Object.values(this.#colors)[0]}"/>
+				<input id="monochrome-colors" list="monochrome-colors-suggestion" type="color" value="${Object.values(colors)[0]}"/>
 				<datalist id="monochrome-colors-suggestion">
-					${Object.entries(this.#colors).map(([name, color]) => `<option value="${color}">${name}</option>`).join('')}
+					${Object.entries(colors).map(([name, color]) => `<option value="${color}">${name}</option>`).join('')}
 				</datalist>
 			</div>
 			<div id="download">
@@ -67,7 +59,7 @@ export class LogoWithBackgroundSelector extends HTMLElement {
 			</div>
 		`;
 
-		this.setAttribute('color', Object.values(this.#colors)[0]);
+		this.setAttribute('color', Object.values(colors)[0]);
 
 		if (this.hasAttribute('no-color-picker')) {
 			this.style.setProperty('--logo-background-color', 'transparent');
@@ -136,7 +128,7 @@ export class LogoWithBackgroundSelector extends HTMLElement {
 
 	attributeChangedCallback(name: string, oldValue: string, newValue: string) {
 		if (name === 'color') {
-			if (newValue !== oldValue && newValue in this.#colors) {
+			if (newValue !== oldValue && newValue in colors) {
 				this.style.setProperty('--logo-background-color', newValue);
 				this.#root.querySelector('input')?.setAttribute('value', newValue);
 			}
