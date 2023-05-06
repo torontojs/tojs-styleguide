@@ -1,7 +1,9 @@
 export class SimpleGraphic extends HTMLElement {
-	static get observedAttributes() { return ['text', 'subtext', 'side', 'mode']; }
+	static get observedAttributes() { return ['text', 'subtext', 'side', 'mode', 'width', 'height']; }
 
 	#root: ShadowRoot;
+	#width = '';
+	#height = '';
 
 	constructor() {
 		super();
@@ -10,6 +12,8 @@ export class SimpleGraphic extends HTMLElement {
 		const subtext = this.getAttribute('subtext') ?? 'online';
 		const side = this.getAttribute('side') ?? 'right';
 		const mode = this.getAttribute('mode') ?? 'dark';
+		const width = this.getAttribute('width') ?? '4000';
+		const height = this.getAttribute('height') ?? '2480';
 
 		this.#root = this.attachShadow({ mode: 'open' });
 		this.#root.innerHTML = `
@@ -101,6 +105,15 @@ export class SimpleGraphic extends HTMLElement {
 					<input name="mode" id="mode-dark" type="radio" value="dark" ${mode === 'dark' ? 'checked' : ''}/>
 					<label for="mode-dark">Dark</label>
 				</fieldset>
+				<fieldset>
+					<legend>Dimensions</legend>
+
+					<label for="width">Width</label>
+					<input name="width" id="width-input" type="number" step="1" value="${width}"/>
+
+					<label for="height">Height</label>
+					<input name="height" id="height-input" type="number" step="1" value="${height}"/>
+				</fieldset>
 			</div>
 			<div id="download">
 				<button type="button" id="download-svg">💾 Download SVG</button>
@@ -112,6 +125,10 @@ export class SimpleGraphic extends HTMLElement {
 		this.setAttribute('subtext', subtext);
 		this.setAttribute('side', side);
 		this.setAttribute('mode', mode);
+		this.setAttribute('width', width);
+		this.#width = width;
+		this.setAttribute('height', height);
+		this.#height = height;
 	}
 
 	connectedCallback() {
@@ -121,6 +138,14 @@ export class SimpleGraphic extends HTMLElement {
 
 		this.#root.querySelector('#subtext-input')?.addEventListener('input', (evt) => {
 			this.setAttribute('subtext', (evt.target as HTMLInputElement).value);
+		});
+
+		this.#root.querySelector('#width-input')?.addEventListener('input', (evt) => {
+			this.setAttribute('width', (evt.target as HTMLInputElement).value);
+		});
+
+		this.#root.querySelector('#height-input')?.addEventListener('input', (evt) => {
+			this.setAttribute('height', (evt.target as HTMLInputElement).value);
 		});
 
 		this.#root.querySelectorAll('input[name="side"]').forEach((input) => {
@@ -151,19 +176,23 @@ export class SimpleGraphic extends HTMLElement {
 		});
 
 		this.#root.querySelector('#download-png')?.addEventListener('click', () => {
-			const svg = this.#root.querySelector('svg') as SVGElement;
+			const svg = this.#root.querySelector('svg')?.cloneNode(true) as SVGElement;
+
+			svg.setAttribute('width', this.#width);
+			svg.setAttribute('height', this.#height);
+
 			const svgData = new XMLSerializer().serializeToString(svg);
 
 			const canvas = document.createElement('canvas');
 			const ctx = canvas.getContext('2d');
 
-			canvas.width = 4000;
-			canvas.height = 2480;
+			canvas.width = Number.parseInt(this.#width);
+			canvas.height = Number.parseInt(this.#height);
 
 			const img = new Image();
 
 			img.onload = () => {
-				ctx?.drawImage(img, 0, 0);
+				ctx?.drawImage(img, 0, 0, canvas.width, canvas.height);
 
 				const link = document.createElement('a');
 
@@ -186,6 +215,18 @@ export class SimpleGraphic extends HTMLElement {
 		if (name === 'subtext') {
 			if (newValue !== oldValue) {
 				(this.#root.querySelector('#subtext') as SVGTextElement).textContent = newValue;
+			}
+		}
+
+		if (name === 'width') {
+			if (newValue !== oldValue) {
+				this.#width = newValue;
+			}
+		}
+
+		if (name === 'height') {
+			if (newValue !== oldValue) {
+				this.#height = newValue;
 			}
 		}
 
