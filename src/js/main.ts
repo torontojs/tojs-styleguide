@@ -1,4 +1,4 @@
-import './logo.ts';
+import './downloadable-image.ts';
 import './simple-graphic.ts';
 import './color-box.ts';
 
