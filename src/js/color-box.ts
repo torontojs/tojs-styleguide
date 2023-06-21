@@ -116,16 +116,18 @@ export class ColorBox extends HTMLElement {
 	}
 
 	#updateColor() {
-		const colorAttribute = this.getAttribute('color');
+		const colorAttribute = this.getAttribute('color') ?? '';
 		// Get either from color name or use the hex value
-		const color = colors[colorAttribute ?? ''] ?? colorAttribute ?? '';
+		// @ts-expect-error: colorAttribute is a string
+		const color = colors[colorAttribute] ?? colorAttribute;
 		const rgbColor = this.#hexToRgb(color ?? '');
 		const hslColor = this.#hexToHsl(color ?? '');
 
 		this.style.setProperty('--color', color);
 		this.style.setProperty('--text-color', this.#getTextColorForBgColor(color));
 
-		(this.#root.getElementById('color-name') as HTMLSpanElement).innerText = colorNames[colorAttribute ?? ''] ?? '';
+		// @ts-expect-error: colorAttribute is a string
+		(this.#root.getElementById('color-name') as HTMLSpanElement).innerText = colorNames[colorAttribute] ?? '';
 		(this.#root.getElementById('hex-code') as HTMLSpanElement).innerText = color;
 
 		(this.#root.getElementById('h') as HTMLSpanElement).innerText = hslColor.hue.toString();
