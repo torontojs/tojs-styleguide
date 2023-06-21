@@ -1,5 +1,7 @@
 import { colors } from './constants';
 
+// TODO: add docs
+
 export class DownloadableImage extends HTMLElement {
 	static get observedAttributes() { return ['color', 'width', 'height', 'controls', 'file-name']; }
 
