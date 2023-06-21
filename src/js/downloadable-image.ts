@@ -143,6 +143,8 @@ export class DownloadableImage extends HTMLElement {
 
 		svgStyleRule?.style.setProperty('--background-color', value);
 		svgStyleRule?.style.setProperty('--foreground-color', this.foregroundColor);
+
+		// TODO: add a way to change the color of the output SVG
 	}
 
 	get foregroundColor() {
