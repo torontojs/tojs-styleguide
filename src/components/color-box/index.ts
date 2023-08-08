@@ -1,7 +1,7 @@
 /* eslint-disable no-bitwise, @typescript-eslint/no-magic-numbers, @typescript-eslint/restrict-template-expressions */
 import { colorNames, colors } from '../../js/constants';
 
-import cssLink from './index.css?url';
+import cssLink from './style.css?url';
 
 /**
  * An element to display a color and it's value in various formats.
