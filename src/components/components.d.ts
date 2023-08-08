@@ -2,6 +2,8 @@
 
 declare global {
 	interface HTMLElementTagNameMap {
-		'downloadable-image': import('./downloadable-image').DownloadableImage
+		'color-box': import('./color-box').ColorBox,
+		'downloadable-image': import('./downloadable-image').DownloadableImage,
+		'editable-image': import('./editable-image').EditableImage
 	}
 }
