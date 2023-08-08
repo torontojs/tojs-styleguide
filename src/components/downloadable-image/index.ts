@@ -13,7 +13,7 @@ import cssLink from './style.css?url';
  * @element downloadable-image
  */
 export class DownloadableImage extends HTMLElement {
-	static get observedAttributes() { return ['color', 'width', 'height', 'controls', 'file-name']; }
+	static get observedAttributes() { return ['color', 'width', 'height', 'file-name']; }
 
 	declare shadowRoot: ShadowRoot;
 
@@ -61,10 +61,6 @@ export class DownloadableImage extends HTMLElement {
 				</div>
 			</div>
 		`;
-
-		if (!this.controls) {
-			this.color = 'transparent';
-		}
 	}
 
 	/**
@@ -130,26 +126,6 @@ export class DownloadableImage extends HTMLElement {
 		return this.foregroundColor === '#ffffff'
 			? '#000000'
 			: '#ffffff';
-	}
-
-	/**
-	 * Whether the controls are visible or not.
-	 * If true, will show the background color picker.
-	 *
-	 * @attr controls
-	 * @type {boolean}
-	 * @default true
-	 */
-	get controls() {
-		return this.getAttribute('controls') !== 'false';
-	}
-
-	set controls(value) {
-		this.setAttribute('controls', value ? 'true' : 'false');
-
-		if (!value) {
-			this.color = 'transparent';
-		}
 	}
 
 	/**
@@ -293,10 +269,6 @@ export class DownloadableImage extends HTMLElement {
 			switch (name) {
 				case 'color':
 					this.color = newValue;
-					break;
-
-				case 'controls':
-					this.controls = newValue === 'true';
 					break;
 
 				case 'width':

@@ -3,10 +3,6 @@
 	contain: content;
 }
 
-:host([controls="false"]) #controls {
-	display: none;
-}
-
 slot {
 	display: none;
 }
