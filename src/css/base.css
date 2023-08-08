@@ -5,21 +5,6 @@
 @import './menu.css';
 @import './logo.css';
 
-::-webkit-scrollbar {
-	width: var(--scrollbar-size);
-	height: var(--scrollbar-size);
-}
-
-::-webkit-scrollbar-track {
-	border-radius: var(--pill-border-radius);
-	background-color: var(--scrollbar-bg);
-}
-
-::-webkit-scrollbar-thumb {
-	border-radius: var(--pill-border-radius);
-	background-color: var(--theme-color);
-}
-
 html, body {
 	height: 100%;
 	width: 100%;
