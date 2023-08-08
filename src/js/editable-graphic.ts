@@ -1,4 +1,4 @@
-import { DownloadableImage } from './downloadable-image';
+import { DownloadableImage } from '../components/downloadable-image';
 
 export class EditableGraphic extends DownloadableImage {
 	static get observedAttributes() { return ['text', 'subtext', 'side', 'mode']; }

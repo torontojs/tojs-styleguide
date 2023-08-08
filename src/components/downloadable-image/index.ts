@@ -1,7 +1,17 @@
-import { colors } from './constants';
+import { colorValues } from '../../js/constants';
 
-// TODO: add docs
+import cssLink from './style.css?url';
 
+/**
+ * Enhances an image by adding a changeable background color and download options.
+ *
+ * The background color will also make the foreground color change from black to white depending on contrast.
+ *
+ * The image can be downloaded as SVG or PNG, with available controls for width and height.
+ *
+ * @slot - The image to be displayed and enhanced.
+ * @element downloadable-image
+ */
 export class DownloadableImage extends HTMLElement {
 	static get observedAttributes() { return ['color', 'width', 'height', 'controls', 'file-name']; }
 
@@ -13,79 +23,7 @@ export class DownloadableImage extends HTMLElement {
 		this.attachShadow({ mode: 'open' });
 
 		this.shadowRoot.innerHTML = `
-			<style>
-				:host {
-					display: block;
-					contain: content;
-				}
-
-				:host([controls="false"]) #controls {
-					display: none;
-				}
-
-				slot {
-					display: none;
-				}
-
-				fieldset {
-					border-radius: 0.5rem;
-					border: thin solid currentColor;
-				}
-
-				input {
-					border: thin solid currentColor;
-					border-radius: 0.5rem;
-					padding: 0.3rem 0.5rem;
-				}
-
-				input[type="color"] {
-					padding: 0;
-				}
-
-				button {
-					border: thin solid currentColor;
-					border-radius: 0.5rem;
-					padding: 0.3rem 0.5rem;
-				}
-
-				#wrapper {
-					display: flex;
-					width: clamp(10rem, 100%, 50vmin);
-					height: clamp(10rem, 100%, 50vmin);
-					margin-inline: auto;
-					text-align: center;
-				}
-
-				#controls {
-					margin-block-start: 1rem;
-					text-align: center;
-				}
-
-				#controls > * {
-					margin-block-start: 1rem;
-					display: flex;
-					gap: 1rem;
-					place-items: center;
-					justify-content: center;
-					flex-wrap: wrap;
-				}
-
-				#download {
-					margin-block-start: 1rem;
-					display: flex;
-					flex-direction: column;
-					gap: 1rem;
-					place-items: center;
-				}
-
-				#download div {
-					display: flex;
-					gap: 1rem;
-					place-items: center;
-					justify-content: center;
-					flex-wrap: wrap;
-				}
-			</style>
+			<link rel="stylesheet" href="${cssLink}"/>
 
 			<div id="wrapper">
 				<slot></slot>
@@ -95,19 +33,14 @@ export class DownloadableImage extends HTMLElement {
 				<label for="background-color">
 					Pick a background color:
 
-					<input id="background-color" list="color-suggestion" type="color" value="${Object.values(colors)[0]}"/>
+					<input id="background-color" list="color-suggestion" type="color" value="${colorValues[0]}"/>
 					<datalist id="color-suggestion">
-						${Object.values(colors).map((color) => `<option>${color}</option>`).join('')}
+						${colorValues.map((color) => `<option>${color}</option>`).join('')}
 					</datalist>
 				</label>
 			</div>
 
 			<div id="download">
-				<div>
-					<button type="button" id="download-svg">💾 Download SVG</button>
-					<button type="button" id="download-png">💾 Download PNG</button>
-				</div>
-
 				<details>
 					<summary>Download options</summary>
 
@@ -121,6 +54,11 @@ export class DownloadableImage extends HTMLElement {
 						<input name="height" id="height-input" type="number" step="1" value="${this.height}"/>
 					</fieldset>
 				</details>
+
+				<div>
+					<button type="button" id="download-svg">💾 Download SVG</button>
+					<button type="button" id="download-png">💾 Download PNG</button>
+				</div>
 			</div>
 		`;
 
@@ -129,24 +67,45 @@ export class DownloadableImage extends HTMLElement {
 		}
 	}
 
+	/**
+	 * The background color of the image.
+	 *
+	 * @attr color
+	 * @type {string}
+	 * @default '#ED342F'
+	 */
 	get color() {
-		return this.getAttribute('color') ?? Object.values(colors)[0];
+		return this.getAttribute('color') ?? colorValues[0];
 	}
 
 	set color(value) {
 		this.setAttribute('color', value);
 		this.shadowRoot.querySelector('#background-color')?.setAttribute('value', value);
 
-		const styleElements = [...this.shadowRoot.querySelectorAll('style')];
-		const cssRules = styleElements.map((styleElement) => [...styleElement.sheet?.cssRules ?? []]).flat();
-		const [svgStyleRule] = cssRules.filter((rule) => rule instanceof CSSStyleRule && rule.selectorText === 'svg') as [CSSStyleRule?];
+		this.shadowRoot.querySelectorAll('.fill-bg-color').forEach((element) => {
+			element.setAttribute('fill', value);
+		});
 
-		svgStyleRule?.style.setProperty('--background-color', value);
-		svgStyleRule?.style.setProperty('--foreground-color', this.foregroundColor);
+		this.shadowRoot.querySelectorAll('.stroke-bg-color').forEach((element) => {
+			element.setAttribute('stroke', value);
+		});
 
-		// TODO: add a way to change the color of the output SVG
+		this.shadowRoot.querySelectorAll('.fill-fg-color').forEach((element) => {
+			element.setAttribute('fill', this.foregroundColor);
+		});
+
+		this.shadowRoot.querySelectorAll('.stroke-fg-color').forEach((element) => {
+			element.setAttribute('stroke', this.foregroundColor);
+		});
 	}
 
+	/**
+	 * The foreground color of the image.
+	 * This is automatically calculated based on the background color.
+	 *
+	 * @type {string}
+	 * @default '#ffffff'
+	 */
 	get foregroundColor() {
 		/* eslint-disable @typescript-eslint/no-magic-numbers */
 		const red = parseInt(this.color.slice(1, 3), 16);
@@ -159,6 +118,28 @@ export class DownloadableImage extends HTMLElement {
 			: '#ffffff';
 	}
 
+	/**
+	 * The inverted foreground color of the image.
+	 * This is automatically calculated based on the background color.
+	 * This is the opposite of foregroundColor.
+	 *
+	 * @type {string}
+	 * @default '#000000'
+	 */
+	get invertedForegroundColor() {
+		return this.foregroundColor === '#ffffff'
+			? '#000000'
+			: '#ffffff';
+	}
+
+	/**
+	 * Whether the controls are visible or not.
+	 * If true, will show the background color picker.
+	 *
+	 * @attr controls
+	 * @type {boolean}
+	 * @default true
+	 */
 	get controls() {
 		return this.getAttribute('controls') !== 'false';
 	}
@@ -171,6 +152,13 @@ export class DownloadableImage extends HTMLElement {
 		}
 	}
 
+	/**
+	 * The width of the image.
+	 *
+	 * @attr width
+	 * @type {number}
+	 * @default 2480
+	 */
 	get width() {
 		const width = Number.parseInt(this.getAttribute('width') ?? '2480');
 
@@ -181,6 +169,13 @@ export class DownloadableImage extends HTMLElement {
 		this.setAttribute('width', value.toString());
 	}
 
+	/**
+	 * The height of the image.
+	 *
+	 * @attr height
+	 * @type {number}
+	 * @default 2480
+	 */
 	get height() {
 		const height = Number.parseInt(this.getAttribute('height') ?? '2480');
 
@@ -191,6 +186,13 @@ export class DownloadableImage extends HTMLElement {
 		this.setAttribute('height', value.toString());
 	}
 
+	/**
+	 * The file name used when downloading the image.
+	 *
+	 * @attr file-name
+	 * @type {string}
+	 * @default 'image'
+	 */
 	get fileName() {
 		const FALLBACK_FILE_NAME = 'image';
 
@@ -204,10 +206,10 @@ export class DownloadableImage extends HTMLElement {
 	#downloadImage(type: 'svg' | 'png') {
 		const svg = this.shadowRoot.querySelector('#wrapper svg')?.cloneNode(true) as SVGElement;
 
-		// TODO: replace css variables with actual values
-
-		svg.setAttribute('width', this.width.toString());
-		svg.setAttribute('height', this.height.toString());
+		if (type === 'png') {
+			svg.setAttribute('width', this.width.toString());
+			svg.setAttribute('height', this.height.toString());
+		}
 
 		const svgData = new XMLSerializer().serializeToString(svg);
 		const dataUrl = `data:image/svg+xml;base64,${btoa(svgData)}`;
@@ -246,6 +248,14 @@ export class DownloadableImage extends HTMLElement {
 			this.color = (evt.target as HTMLInputElement).value;
 		});
 
+		this.shadowRoot.querySelector('#width-input')?.addEventListener('input', (evt) => {
+			this.width = Number.parseInt((evt.target as HTMLInputElement).value);
+		});
+
+		this.shadowRoot.querySelector('#height-input')?.addEventListener('input', (evt) => {
+			this.height = Number.parseInt((evt.target as HTMLInputElement).value);
+		});
+
 		this.shadowRoot.querySelector('#download-svg')?.addEventListener('click', () => {
 			this.#downloadImage('svg');
 		});
@@ -262,7 +272,7 @@ export class DownloadableImage extends HTMLElement {
 
 			if (image) {
 				const [imageFilePath] = (image.src).split('/').reverse();
-				const [imageFileName] = imageFilePath.split('.');
+				const [imageFileName = ''] = imageFilePath?.split('.') ?? [];
 
 				this.fileName = imageFileName;
 
@@ -273,7 +283,7 @@ export class DownloadableImage extends HTMLElement {
 
 				wrapperDiv.innerHTML = svg;
 
-				[this.color] = Object.values(colors);
+				[this.color] = colorValues;
 			}
 		});
 	}

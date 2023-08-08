@@ -1,4 +1,4 @@
-import './downloadable-image.ts';
+import '../components/downloadable-image/index.js';
 import './editable-graphic.ts';
 import './simple-graphic.ts';
 import './color-box.ts';

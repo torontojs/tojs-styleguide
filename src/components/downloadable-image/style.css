@@ -1,0 +1,71 @@
+:host {
+	display: block;
+	contain: content;
+}
+
+:host([controls="false"]) #controls {
+	display: none;
+}
+
+slot {
+	display: none;
+}
+
+fieldset {
+	border-radius: 0.5rem;
+	border: thin solid currentcolor;
+}
+
+input {
+	border: thin solid currentcolor;
+	border-radius: 0.5rem;
+	padding: 0.3rem 0.5rem;
+}
+
+input[type="color"] {
+	padding: 0;
+}
+
+button {
+	border: thin solid currentcolor;
+	border-radius: 0.5rem;
+	padding: 0.3rem 0.5rem;
+}
+
+#wrapper {
+	display: flex;
+	width: clamp(10rem, 100%, 50vmin);
+	height: clamp(10rem, 100%, 50vmin);
+	margin-inline: auto;
+	text-align: center;
+}
+
+#controls {
+	margin-block-start: 1rem;
+	text-align: center;
+}
+
+#controls > * {
+	margin-block-start: 1rem;
+	display: flex;
+	gap: 1rem;
+	place-items: center;
+	justify-content: center;
+	flex-wrap: wrap;
+}
+
+#download {
+	margin-block-start: 1rem;
+	display: flex;
+	flex-direction: column;
+	gap: 1rem;
+	place-items: center;
+}
+
+#download div {
+	display: flex;
+	gap: 1rem;
+	place-items: center;
+	justify-content: center;
+	flex-wrap: wrap;
+}

@@ -3,17 +3,27 @@ export const colors = {
 	'CN Tower at Night': '#5F1513',
 	'Breaking News': '#F8ADAB',
 	'Raccon Stripes': '#120606',
-	'Downtown street': '#5C5856',
+	'Downtown Street': '#5C5856',
 	'Slushy Snow': '#B9B4AD',
 	'Wintery Sky': '#FDF7F8'
-};
+} as const;
 
-export const colorNames = {
-	'#ED342F': 'Toronto JS Red',
-	'#5F1513': 'CN Tower at Night',
-	'#F8ADAB': 'Breaking News',
-	'#120606': 'Raccon Stripes',
-	'#5C5856': 'Downtown street',
-	'#B9B4AD': 'Slushy Snow',
-	'#FDF7F8': 'Wintery Sky'
-};
+export const colorValues = [
+	'#ED342F',
+	'#5F1513',
+	'#F8ADAB',
+	'#120606',
+	'#5C5856',
+	'#B9B4AD',
+	'#FDF7F8'
+] as const;
+
+export const colorNames = [
+	'Toronto JS Red',
+	'CN Tower at Night',
+	'Breaking News',
+	'Raccon Stripes',
+	'Downtown Street',
+	'Slushy Snow',
+	'Wintery Sky'
+] as const;
