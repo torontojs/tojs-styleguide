@@ -455,11 +455,13 @@
 				<a class="header-link" href="#pictures-and-art--dos-and-donts">🔗</a>
 			</h3>
 
+			<!-- TODO: add dos and don'ts -->
+
 			<section>
-				<h4>Do</h4>
+				<h4>Dos</h4>
 			</section>
 			<section>
-				<h4>Don't</h4>
+				<h4>Don'ts</h4>
 			</section>
 		</article>
 
@@ -478,7 +480,39 @@
 				<a class="header-link" href="#graphic-material--simple">🔗</a>
 			</h3>
 
-			<simple-graphic></simple-graphic>
+			<editable-graphic>
+				<img class="graphic" src="./assets/simple-graphic.svg" alt=""/>
+
+				<div slot="controls">
+					<label for="text">Text</label>
+					<input name="text" id="text-input" type="text" maxlength="20" value=""/>
+				</div>
+
+				<div slot="controls">
+					<label for="subtext">Subtext</label>
+					<input name="subtext" id="subtext-input" type="text" maxlength="20" value=""/>
+				</div>
+
+				<fieldset slot="controls">
+					<legend>CN Tower Side</legend>
+
+					<input name="side" id="side-left" type="radio" value="left"/>
+					<label for="side-left">Left</label>
+
+					<input name="side" id="side-right" type="radio" value="right" checked/>
+					<label for="side-right">Right</label>
+				</fieldset>
+
+				<fieldset slot="controls">
+					<legend>Mode</legend>
+
+					<input name="mode" id="mode-light" type="radio" value="light" checked/>
+					<label for="mode-light">Light</label>
+
+					<input name="mode" id="mode-dark" type="radio" value="dark"/>
+					<label for="mode-dark">Dark</label>
+				</fieldset>
+			</editable-graphic>
 
 			<h3 id="graphic-material--composed">
 				Composed
@@ -489,6 +523,7 @@
 				Monochrome
 				<a class="header-link" href="#graphic-material--monochrome">🔗</a>
 			</h3>
+
 			<downloadable-image file-name="mono-graphic">
 				<img class="graphic" src="./assets/monochrome-graphic.svg" alt=""/>
 			</downloadable-image>
@@ -497,8 +532,18 @@
 				Line Art
 				<a class="header-link" href="#graphic-material--line-art">🔗</a>
 			</h3>
+
 			<downloadable-image file-name="line-art-graphic">
 				<img class="graphic" src="./assets/line-art-graphic.svg" alt=""/>
+			</downloadable-image>
+
+			<h3 id="graphic-material--volunteer-badge">
+				Volunteer Badge
+				<a class="header-link" href="#graphic-material--volunteer-badge">🔗</a>
+			</h3>
+
+			<downloadable-image file-name="volunteer-badge">
+				<img class="graphic" src="./assets/volunteer-badge.svg" alt=""/>
 			</downloadable-image>
 		</article>
 
@@ -508,20 +553,55 @@
 				<a class="header-link" href="#social-media">🔗</a>
 			</h2>
 
+			<h3 id="social-media-copy">
+				Copy text
+				<a class="header-link" href="#social-media-copy">🔗</a>
+			</h3>
+
+			<p>Copy text should clearly state who the involved members of the community are. Emphasis should be placed first in individuals, then in organizers and lastly on directors. This aims to highlight contributions made by individuals and the underlying message that this is a community made by it's members.</p>
+
+			<p>The messages tone should be respectful and empathetic, always mentioning positive things about the content being shared.</p>
+
+			<p>Messages should be written in a plain, accessible and straightforward way.</p>
+
 			<h3 id="avatars">
 				Avatars
 				<a class="header-link" href="#avatars">🔗</a>
 			</h3>
+
+			<p>Avatars should be used to identify the community and it's members. They should be used in social media profiles and other places where a profile picture is needed.</p>
+
+			<p>For the Toronto JS pages and profiles the image used should be the <a href="#logo--logo-variants-and-uses">Regular logo</a>.</p>
+
+			<p>For personal profiles, the avatar should be a picture of the person with either a border or a badge, as in the examples below.</p>
+
+			<!-- TODO: add template -->
 
 			<h3 id="cover-images">
 				Cover Images
 				<a class="header-link" href="#cover-images">🔗</a>
 			</h3>
 
+			<p>The cover image to use for Toronto JS pages and profiles is simply the logo, right aligned to a plain background, as shown below.</p>
+
+			<p>For users, there is an extra space to add a custom image, like the template below.</p>
+
+			<!-- TODO: add template -->
+
 			<h3 id="posts">
 				Posts
 				<a class="header-link" href="#posts">🔗</a>
 			</h3>
+
+			<p>Posts should be made in a way that is accessible to everyone. This means that the text should be written in a way that is easy to understand and <em>images should have alt text.</em></p>
+
+			<p>Photos and AI generated images are encouraged for posts, as long as they show the community in a positive light.</p>
+
+			<p>Post pictures follow the guidelines of <a href="#pictures-and-art">Pictures and Art</a>.</p>
+
+			<p>Posts can also use one of the templates below.</p>
+
+			<!-- TODO: add template -->
 		</article>
 	</main>
 	<script src="./js/main.ts" type="module"></script>
