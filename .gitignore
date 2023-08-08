@@ -13,13 +13,6 @@ lerna-debug.log*
 # Dependency directories
 node_modules/
 jspm_packages/
-dist
-dev-dist
-dist-ssr
-coverage
-*.local
-/cypress/videos/
-/cypress/screenshots/
 
 # Typescript v1 declaration files
 typings/
@@ -44,8 +37,20 @@ typings/
 # VS Code
 .vscode/
 
-# server certificates
+# Build artifacts
+dist
+dev-dist
+dist-ssr
+coverage
+*.local
+/cypress/videos/
+/cypress/screenshots/
+
+# Server certificates
 certs
 *.pem
 *.crt
 *.key
+
+# Typescript build info
+*.tsbuildinfo
