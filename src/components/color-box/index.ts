@@ -1,6 +1,15 @@
 /* eslint-disable no-bitwise, @typescript-eslint/no-magic-numbers, @typescript-eslint/restrict-template-expressions */
-import { colorNames, colors } from './constants';
+import { colorNames, colors } from '../../js/constants';
 
+import cssLink from './index.css?url';
+
+/**
+ * An element to display a color and it's value in various formats.
+ * It also sets the background color of the element to the selected color.
+ * The text color changes based on the background color.
+ *
+ * @element color-box
+ */
 export class ColorBox extends HTMLElement {
 	static get observedAttributes() { return ['color']; }
 
@@ -11,33 +20,7 @@ export class ColorBox extends HTMLElement {
 
 		this.#root = this.attachShadow({ mode: 'open' });
 		this.#root.innerHTML = `
-			<style>
-				:host {
-					--color: #000000;
-					--text-color: #ffffff;
-					--size: 12rem;
-
-					box-sizing: border-box;
-					width: var(--size);
-					height: var(--size);
-
-					text-align: center;
-
-					display: inline-block;
-					margin: var(--margin-inline);
-					padding: var(--padding-inline);
-
-					border-radius: var(--border-radius);
-					border-width: var(--border-width);
-					border-color: var(--border-color);
-					border-style: solid;
-
-					background-color: var(--color);
-					color: var(--text-color);
-				}
-
-				code { user-select: all; }
-			</style>
+			<link rel="stylesheet" href="${cssLink}"/>
 			<div id="color-box">
 				<h4>"<span id="color-name"></span>"</h4>
 				<span><code id="hex-code"></code></span>

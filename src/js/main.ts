@@ -1,7 +1,7 @@
-import '../components/downloadable-image/index.js';
+import '../components/downloadable-image';
 import './editable-graphic.ts';
 import './simple-graphic.ts';
-import './color-box.ts';
+import '../components/color-box';
 
 import { registerTocLinksActions, registerTocMenuButton } from './toc';
 
