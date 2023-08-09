@@ -1,5 +1,4 @@
-import '../components/downloadable-image';
-import '../components/color-box';
+import '../components';
 
 import { registerTocLinksActions, registerTocMenuButton } from './toc';
 

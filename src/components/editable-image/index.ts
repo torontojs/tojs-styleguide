@@ -1,9 +1,18 @@
 import cssLink from './style.css?url';
 
+/**
+ * An element that allows you to edit an SVG image.
+ *
+ * @element editable-image
+ * @slot - The SVG image to edit.
+ * @slot controls - The controls inputs to edit the image.
+ */
 export class EditableImage extends HTMLElement {
 	static get observedAttributes() { return ['width', 'height', 'file-name']; }
 
 	declare shadowRoot: ShadowRoot;
+
+	#controlEventsMap = new Map<HTMLElement, EventListener>();
 
 	constructor() {
 		super();
@@ -173,11 +182,41 @@ export class EditableImage extends HTMLElement {
 			}
 		});
 
-		this.shadowRoot.querySelector('slot[name="controls"]')?.addEventListener('slotchange', (evt) => {
-			// TODO: Add controls logic/event listeners
-			// Loop over elements and add event listener for each input.
-			// Inputs of type text should update the the elements with a class equal to their `name` attribute.
-			// Inputs of type radio should update elements with a class equal to their `name` attribute, toggling the element `visibility` depending on the value of their `value` attribute.
+		this.shadowRoot.querySelector('slot[name="controls"]')?.addEventListener('slotchange', (slotEvent) => {
+			const assignedElements = (slotEvent.target as HTMLSlotElement).assignedElements() as HTMLElement[];
+			const newElements = assignedElements.filter((child) => !this.#controlEventsMap.has(child));
+
+			newElements.forEach((element) => {
+				const eventListener: EventListener = (evt) => {
+					const target = evt.target as HTMLInputElement;
+
+					if (target.type === 'radio') {
+						const elementsToUpdate = this.shadowRoot.querySelectorAll<SVGElement>(`.${target.name}`);
+
+						elementsToUpdate.forEach((elementToUpdate) => {
+							elementToUpdate.style.visibility = elementToUpdate.classList.contains(target.value) ? 'visible' : 'hidden';
+						});
+					} else if (target.type === 'text') {
+						const elementsToUpdate = this.shadowRoot.querySelectorAll<SVGElement>(`.${target.name}`);
+
+						elementsToUpdate.forEach((elementToUpdate) => {
+							elementToUpdate.textContent = target.value;
+						});
+					}
+				};
+
+				element.addEventListener('input', eventListener);
+
+				this.#controlEventsMap.set(element, eventListener);
+			});
+
+			const removedElements = Array.from(this.#controlEventsMap.keys()).filter((element) => !assignedElements.includes(element));
+
+			removedElements.forEach((element) => {
+				element.removeEventListener('input', this.#controlEventsMap.get(element) as EventListener);
+
+				this.#controlEventsMap.delete(element);
+			});
 		});
 	}
 
@@ -200,4 +239,8 @@ export class EditableImage extends HTMLElement {
 			}
 		}
 	}
+}
+
+if (!customElements.get('editable-image')) {
+	customElements.define('editable-image', EditableImage);
 }
