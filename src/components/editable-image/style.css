@@ -37,8 +37,7 @@ button {
 	text-align: center;
 }
 
-/* TODO: use slotted items */
-#controls > * {
+#controls ::slotted(*) {
 	margin-block-start: 1rem;
 	display: flex;
 	gap: 1rem;
