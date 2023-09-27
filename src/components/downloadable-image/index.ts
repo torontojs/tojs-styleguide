@@ -7,6 +7,14 @@ import cssLink from './style.css?url';
  *
  * The background color will also make the foreground color change from black to white depending on contrast.
  *
+ * To make this work, you have to add one of the following classes to the SVG elements you want to change:
+ * - `fill-bg-color` to change the fill color
+ * - `stroke-bg-color` to change the stroke color
+ * - `fill-fg-color` to change the fill color to the foreground color
+ * - `stroke-fg-color` to change the stroke color to the foreground color
+ * - `fill-inverted-fg-color` to change the fill color to the inverted foreground color
+ * - `stroke-inverted-fg-color` to change the stroke color to the inverted foreground color
+ *
  * The image can be downloaded as SVG or PNG, with available controls for width and height.
  *
  * @slot - The image to be displayed and enhanced.
@@ -92,6 +100,14 @@ export class DownloadableImage extends HTMLElement {
 
 		this.shadowRoot.querySelectorAll('.stroke-fg-color').forEach((element) => {
 			element.setAttribute('stroke', this.foregroundColor);
+		});
+
+		this.shadowRoot.querySelectorAll('.fill-inverted-fg-color').forEach((element) => {
+			element.setAttribute('fill', this.invertedForegroundColor);
+		});
+
+		this.shadowRoot.querySelectorAll('.stroke-inverted-fg-color').forEach((element) => {
+			element.setAttribute('stroke', this.invertedForegroundColor);
 		});
 	}
 

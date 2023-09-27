@@ -3,6 +3,31 @@ import cssLink from './style.css?url';
 /**
  * An element that allows you to edit an SVG image.
  *
+ * The control may be composed of radio buttons or text inputs.
+ *
+ * - For `text` inputs, the input `name` will be used as a class name to find the elements inside the image SVG to update.
+ * - For `radio` inputs, the input `name` as well as it's `value` will be used as classes to find the elements inside the image SVG to update, the `value` being used to determine which elements to show.
+ * - The values set by default in the inputs will be used as the initial values for the image.
+ *
+ * For example:
+ * ```html
+ * <editable-image>
+ *   <input name="text" type="text" value="TEXT"/>
+ *
+ *   <input name="mode" type="radio" value="light" checked/>
+ *   <input name="mode" type="radio" value="dark"/>
+ * </editable-image>
+ * ```
+ *
+ * This will updates the SVG elements to look like below:
+ * ```svg
+ * <svg>
+ *   <text class="text">TEXT</text>
+ *   <g class="mode light" visibility="inherit">...</g>
+ *   <g class="mode dark" visibility="none">...</g>
+ * </svg>
+ * ```
+ *
  * @element editable-image
  * @slot - The SVG image to edit.
  * @slot controls - The controls inputs to edit the image.
@@ -11,8 +36,6 @@ export class EditableImage extends HTMLElement {
 	static get observedAttributes() { return ['width', 'height', 'file-name']; }
 
 	declare shadowRoot: ShadowRoot;
-
-	#controlEventsMap = new Map<HTMLElement, EventListener>();
 
 	constructor() {
 		super();
@@ -144,6 +167,22 @@ export class EditableImage extends HTMLElement {
 		img.src = dataUrl;
 	}
 
+	#processInput(input: HTMLInputElement) {
+		if (input.type === 'radio' && input.checked) {
+			const elementsToUpdate = this.shadowRoot.querySelectorAll<SVGElement>(`svg .${input.name}`);
+
+			elementsToUpdate.forEach((elementToUpdate) => {
+				elementToUpdate.setAttribute('visibility', elementToUpdate.classList.contains(input.value) ? 'inherit' : 'hidden');
+			});
+		} else if (input.type === 'text') {
+			const elementsToUpdate = this.shadowRoot.querySelectorAll<SVGElement>(`svg .${input.name}`);
+
+			elementsToUpdate.forEach((elementToUpdate) => {
+				elementToUpdate.textContent = input.value;
+			});
+		}
+	}
+
 	connectedCallback() {
 		this.shadowRoot.querySelector('#width-input')?.addEventListener('input', (evt) => {
 			this.width = Number.parseInt((evt.target as HTMLInputElement).value);
@@ -179,44 +218,17 @@ export class EditableImage extends HTMLElement {
 				const svg = await response.text();
 
 				wrapperDiv.innerHTML = svg;
+
+				this.querySelectorAll('input').forEach((element) => {
+					this.#processInput(element);
+				});
 			}
 		});
 
-		this.shadowRoot.querySelector('slot[name="controls"]')?.addEventListener('slotchange', (slotEvent) => {
-			const assignedElements = (slotEvent.target as HTMLSlotElement).assignedElements() as HTMLElement[];
-			const newElements = assignedElements.filter((child) => !this.#controlEventsMap.has(child));
+		this.shadowRoot.querySelector('slot[name="controls"]')?.addEventListener('input', (evt) => {
+			const target = evt.target as HTMLInputElement;
 
-			newElements.forEach((element) => {
-				const eventListener: EventListener = (evt) => {
-					const target = evt.target as HTMLInputElement;
-
-					if (target.type === 'radio') {
-						const elementsToUpdate = this.shadowRoot.querySelectorAll<SVGElement>(`.${target.name}`);
-
-						elementsToUpdate.forEach((elementToUpdate) => {
-							elementToUpdate.style.visibility = elementToUpdate.classList.contains(target.value) ? 'visible' : 'hidden';
-						});
-					} else if (target.type === 'text') {
-						const elementsToUpdate = this.shadowRoot.querySelectorAll<SVGElement>(`.${target.name}`);
-
-						elementsToUpdate.forEach((elementToUpdate) => {
-							elementToUpdate.textContent = target.value;
-						});
-					}
-				};
-
-				element.addEventListener('input', eventListener);
-
-				this.#controlEventsMap.set(element, eventListener);
-			});
-
-			const removedElements = Array.from(this.#controlEventsMap.keys()).filter((element) => !assignedElements.includes(element));
-
-			removedElements.forEach((element) => {
-				element.removeEventListener('input', this.#controlEventsMap.get(element) as EventListener);
-
-				this.#controlEventsMap.delete(element);
-			});
+			this.#processInput(target);
 		});
 	}
 
