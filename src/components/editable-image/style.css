@@ -27,7 +27,7 @@ button {
 #wrapper {
 	display: flex;
 	width: clamp(10rem, 100%, 50vmin);
-	height: clamp(10rem, 100%, 50vmin);
+	height: clamp(10rem, 50vmin, 35rem);
 	margin-inline: auto;
 	text-align: center;
 }

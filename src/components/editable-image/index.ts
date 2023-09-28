@@ -9,7 +9,8 @@ import cssLink from './style.css?url';
  * - For `radio` inputs, the input `name` as well as it's `value` will be used as classes to find the elements inside the image SVG to update, the `value` being used to determine which elements to show.
  * - The values set by default in the inputs will be used as the initial values for the image.
  *
- * For example:
+ * @example
+ * Take the following HTML:
  * ```html
  * <editable-image>
  *   <input name="text" type="text" value="TEXT"/>
