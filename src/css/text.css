@@ -33,6 +33,7 @@ a:active {
 
 :is(h1, h2, h3, h4, h5, h6):target {
 	border-block-color: var(--theme-color);
+	scroll-margin-block-start: var(--padding-block);
 }
 
 .align-center { text-align: center; }
