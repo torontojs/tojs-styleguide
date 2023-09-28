@@ -4,13 +4,7 @@ h1, h2, h3, h4, h5, h6 {
 	padding-block: var(--padding-block);
 }
 
-code { font-family: 'Source Code Pro', monospace; }
-
 dt { font-weight: bold; }
-
-blockquote footer {
-	text-align: end;
-}
 
 a {
 	color: var(--theme-color);
@@ -46,13 +40,6 @@ a:active {
 .font-montserrat { font-family: Montserrat, sans-serif; }
 .font-source-sans { font-family: 'Source Sans 3', sans-serif; }
 .font-source-code { font-family: 'Source Code Pro', monospace; }
-
-.select-all { user-select: all; }
-
-.hero-header {
-	font-size: 6rem;
-	margin: var(--margin-block);
-}
 
 .header-link {
 	text-decoration: none;

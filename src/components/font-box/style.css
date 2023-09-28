@@ -1,0 +1,7 @@
+blockquote {
+	font-family: var(--font-family);
+}
+
+blockquote :is(*, ::slotted(*)) {
+	font-family: inherit;
+}
