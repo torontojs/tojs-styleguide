@@ -1,5 +1,4 @@
-/* eslint-disable no-bitwise, @typescript-eslint/no-magic-numbers, @typescript-eslint/restrict-template-expressions */
-import { colorNames, colors } from '../../js/constants';
+/* eslint-disable no-bitwise, @typescript-eslint/no-magic-numbers */
 
 import cssLink from './style.css?url';
 
@@ -11,7 +10,7 @@ import cssLink from './style.css?url';
  * @element color-box
  */
 export class ColorBox extends HTMLElement {
-	static get observedAttributes() { return ['color']; }
+	static get observedAttributes() { return ['color', 'colorname']; }
 
 	#root: ShadowRoot;
 
@@ -30,6 +29,52 @@ export class ColorBox extends HTMLElement {
 				<span>RGB: <code id="r"></code>, <code id="g"></code>, <code id="b"></code></span>
 			</div>
 		`;
+	}
+
+	/**
+	 * The background color of the image.
+	 *
+	 * @attr color
+	 * @type {string}
+	 * @default '#ED342F'
+	 */
+	get color() {
+		return this.getAttribute('color') ?? '#ED342F';
+	}
+
+	set color(value) {
+		this.setAttribute('color', value);
+
+		const rgbColor = this.#hexToRgb(value ?? '');
+		const hslColor = this.#hexToHsl(value ?? '');
+
+		this.style.setProperty('--color', value);
+		this.style.setProperty('--text-color', this.#getTextColorForBgColor(value));
+
+		(this.#root.getElementById('hex-code') as HTMLSpanElement).innerText = value;
+
+		(this.#root.getElementById('h') as HTMLSpanElement).innerText = hslColor.hue.toString();
+		(this.#root.getElementById('s') as HTMLSpanElement).innerText = hslColor.saturation.toString();
+		(this.#root.getElementById('l') as HTMLSpanElement).innerText = hslColor.lightness.toString();
+
+		(this.#root.getElementById('r') as HTMLSpanElement).innerText = rgbColor.red.toString();
+		(this.#root.getElementById('g') as HTMLSpanElement).innerText = rgbColor.green.toString();
+		(this.#root.getElementById('b') as HTMLSpanElement).innerText = rgbColor.blue.toString();
+	}
+
+	/**
+	 * The name of the color.
+	 *
+	 * @attr colorname
+	 * @type {string}
+	 * @default ''
+	 */
+	get colorName() {
+		return this.getAttribute('colorname') ?? '';
+	}
+
+	set colorName(value) {
+		this.setAttribute('colorname', value);
 	}
 
 	#getTextColorForBgColor(color: string) {
@@ -98,38 +143,17 @@ export class ColorBox extends HTMLElement {
 		return { hue, saturation, lightness };
 	}
 
-	#updateColor() {
-		const colorAttribute = this.getAttribute('color') ?? '';
-		// Get either from color name or use the hex value
-		// @ts-expect-error: colorAttribute is a string
-		const color = colors[colorAttribute] ?? colorAttribute;
-		const rgbColor = this.#hexToRgb(color ?? '');
-		const hslColor = this.#hexToHsl(color ?? '');
-
-		this.style.setProperty('--color', color);
-		this.style.setProperty('--text-color', this.#getTextColorForBgColor(color));
-
-		// @ts-expect-error: colorAttribute is a string
-		(this.#root.getElementById('color-name') as HTMLSpanElement).innerText = colorNames[colorAttribute] ?? '';
-		(this.#root.getElementById('hex-code') as HTMLSpanElement).innerText = color;
-
-		(this.#root.getElementById('h') as HTMLSpanElement).innerText = hslColor.hue.toString();
-		(this.#root.getElementById('s') as HTMLSpanElement).innerText = hslColor.saturation.toString();
-		(this.#root.getElementById('l') as HTMLSpanElement).innerText = hslColor.lightness.toString();
-
-		(this.#root.getElementById('r') as HTMLSpanElement).innerText = rgbColor.red.toString();
-		(this.#root.getElementById('g') as HTMLSpanElement).innerText = rgbColor.green.toString();
-		(this.#root.getElementById('b') as HTMLSpanElement).innerText = rgbColor.blue.toString();
-	}
-
-	connectedCallback() {
-		this.#updateColor();
-	}
-
 	attributeChangedCallback(name: string, oldValue: string, newValue: string) {
 		if (oldValue !== newValue) {
-			if (name === 'color') {
-				this.#updateColor();
+			switch (name) {
+				case 'color':
+					this.color = newValue;
+					break;
+				case 'colorname':
+					this.colorName = newValue;
+					break;
+				default:
+					break;
 			}
 		}
 	}
