@@ -58,91 +58,7 @@
 		<link rel="stylesheet" href="./css/base.css" />
 	</head>
 <body>
-	<dialog id="toc">
-		<form method="dialog">
-			<nav>
-				<h2>Table of Contents</h2>
-
-				<ol>
-					<li>
-						<details>
-							<summary><a href="#hello-world">Hello World!</a></summary>
-							<ol>
-								<li><a href="#hello-world--history">History</a></li>
-								<li><a href="#hello-world--principles">Principles</a></li>
-								<li><a href="#hello-world--code-of-conduct">Code of conduct</a></li>
-							</ol>
-						</details>
-					</li>
-					<li>
-						<details>
-							<summary><a href="#typography">Typography</a></summary>
-							<ol>
-								<li><a href="#typography--font-families">Font families</a></li>
-								<li><a href="#typography--using-the-fonts">Using the fonts</a></li>
-							</ol>
-						</details>
-					</li>
-					<li>
-						<details>
-							<summary><a href="#colours">Colours</a></summary>
-							<ol>
-								<li><a href="#colours--colour-palette">Colour palette</a></li>
-								<li><a href="#colours--colour-usage">Colour usage</a></li>
-								<li><a href="#colours--colour-contrast">Colour contrast</a></li>
-							</ol>
-						</details>
-					</li>
-
-					<li>
-						<details>
-							<summary><a href="#logo">Logo</a></summary>
-							<ol>
-								<li><a href="#logo--logo-anatomy">Logo Anatomy</a></li>
-								<li><a href="#logo--logo-variants-and-uses">Logo Variants & Uses</a></li>
-							</ol>
-						</details>
-					</li>
-
-					<li>
-						<details>
-							<summary><a href="#pictures-and-art">Pictures & Art</a></summary>
-							<ol>
-								<li><a href="#pictures-and-art--pictures">Pictures</a></li>
-								<li><a href="#pictures-and-art--art">Art</a></li>
-								<li><a href="#pictures-and-art--dos-and-donts">Do's & Don'ts</a></li>
-							</ol>
-						</details>
-					</li>
-
-					<li>
-						<details>
-							<summary><a href="#graphic-material">Graphic material</a></summary>
-							<ol>
-								<li><a href="#graphic-material--simple">Simple</a></li>
-								<li><a href="#graphic-material--composed">Composed</a></li>
-								<li><a href="#graphic-material--monochrome">Monochrome</a></li>
-								<li><a href="#graphic-material--line-art">Line Art</a></li>
-							</ol>
-						</details>
-					</li>
-
-					<li>
-						<details>
-							<summary><a href="#social-media">Social Media</a></summary>
-							<ol>
-								<li><a href="#social-media--avatars">Avatars</a></li>
-								<li><a href="#social-media--cover-images">Cover Images</a></li>
-								<li><a href="#social-media--posts">Posts</a></li>
-							</ol>
-						</details>
-					</li>
-				</ol>
-			</nav>
-		</form>
-	</dialog>
-
-	<button type="button" class="nav-button" id="toc-button">≡</button>
+	<toc-list></toc-list>
 
 	<main>
 		<header>
@@ -164,18 +80,12 @@
 		</header>
 
 		<article>
-			<h2 id="hello-world">
-				Hello World!
-				<a class="header-link" href="#hello-world">🔗</a>
-			</h2>
+			<h2>Hello World!</h2>
 
 			<p>Welcome to the Toronto JS Brand Manual & Style Guide, on it we will cover all topics related to how branding works on the Toronto JS community.</p>
 			<p>This guide is written so anyone who wants to create graphical materials, social media posts, or web sites have a guide to follow so content has some resemblance to each other and don't look too disconnected.</p>
 
-			<h3 id="hello-world--history">
-				History
-				<a class="header-link" href="#hello-world--history">🔗</a>
-			</h3>
+			<h3>History</h3>
 			<div class="timeline">
 				<section>
 					<h4>2010</h4>
@@ -216,27 +126,15 @@
 				</section>
 			</div>
 
-			<h3 id="hello-world--principles">
-				Principles
-				<a class="header-link" href="#hello-world--principles">🔗</a>
-			</h3>
+			<h3>Principles</h3>
 
-			<h3 id="hello-world--code-of-conduct">
-				Code of conduct
-				<a class="header-link" href="#hello-world--code-of-conduct">🔗</a>
-			</h3>
+			<h3>Code of conduct</h3>
 		</article>
 
 		<article>
-			<h2 id="typography">
-				Typography
-				<a class="header-link" href="#typography">🔗</a>
-			</h2>
+			<h2>Typography</h2>
 
-			<h3 id="typography--font-families">
-				Font families
-				<a class="header-link" href="#typography--font-families">🔗</a>
-			</h3>
+			<h3>Font families</h3>
 
 			<blockquote class="font-montserrat">
 				<h1 class="hero-header">Toronto JS</h1>
@@ -262,10 +160,7 @@
 				<footer><cite>Source Code Pro - Regular</cite></footer>
 			</blockquote>
 
-			<h3 id="typography--using-the-fonts">
-				Using the fonts
-				<a class="header-link" href="#typography--using-the-fonts">🔗</a>
-			</h3>
+			<h3>Using the fonts</h3>
 
 			<dl>
 				<dt>Montserrat - Medium/extra bold</dt>
@@ -287,15 +182,9 @@
 		</article>
 
 		<article>
-			<h2 id="colours">
-				Colours
-				<a class="header-link" href="#colours">🔗</a>
-			</h2>
+			<h2>Colours</h2>
 
-			<h3 id="colours--colour-palette">
-				Colour palette
-				<a class="header-link" href="#colours--colour-palette">🔗</a>
-			</h3>
+			<h3>Colour palette</h3>
 
 			<section id="color-boxes">
 				<color-box color="#5F1513"></color-box>
@@ -308,20 +197,14 @@
 				<color-box color="#FDF7F8"></color-box>
 			</section>
 
-			<h3 id="colours--colour-usage">
-				Colour usage
-				<a class="header-link" href="#colours--colour-usage">🔗</a>
-			</h3>
+			<h3>Colour usage</h3>
 
 			<p>he main colour is <strong>"Toronto JS Red"</strong>, it has two accent shades, one darker (<strong>"Breaking news"</strong>) and one lighter (<strong>"CN Tower lights"</strong>). Those are the colours to be used in most contexts to highlight some details or make things "pop".</p>
 			<p>When using against a dark background the preferred pairing is the main colour follower by the lighter accent. Whereas the pairing for a light background should be the opposite, main colour followed by the darker accent.</p>
 
 			<p>There are also four neutral shades to be used, a black one (<strong>"Raccoon stripes"</strong>), a white one (<strong>"Winter sky"</strong>) and two grays (<strong>"Downtown street"</strong> and <strong>"Slushy snow"</strong>).The black and white shades are to be used mainly for backgrounds and the basis of light and dark themes.The shades of grey serve to add highlights, depth or details to the other elements they are paired with.</p>
 
-			<h3 id="colours--colour-contrast">
-				Colour contrast
-				<a class="header-link" href="#colours--colour-contrast">🔗</a>
-			</h3>
+			<h3>Colour contrast</h3>
 
 			<section>
 				<div class="color-example bg-light text-dark">
@@ -349,15 +232,9 @@
 		</article>
 
 		<article>
-			<h2 id="logo">
-				Logo
-				<a class="header-link" href="#logo">🔗</a>
-			</h2>
+			<h2>Logo</h2>
 
-			<h3 id="logo--logo-anatomy">
-				Logo Anatomy
-				<a class="header-link" href="#logo--logo-anatomy">🔗</a>
-			</h3>
+			<h3>Logo Anatomy</h3>
 
 			<section id="logo-anatomy-description">
 				<blockquote>
@@ -375,85 +252,58 @@
 				<!-- TODO: find out about color history/why -->
 			</section>
 
-			<h3 id="logo--logo-variants-and-uses">
-				Logo Variants & Uses
-				<a class="header-link" href="#logo--logo-variants-and-uses">🔗</a>
-			</h3>
+			<h3>Logo Variants & Uses</h3>
 
-			<dl>
-				<dt>Regular Logo</dt>
-				<dd>
-					<downloadable-image color-picker="false">
-						<img class="logo" src="./assets/logo.svg" alt=""/>
-					</downloadable-image>
+			<h4>Regular Logo</h4>
+			<downloadable-image color-picker="false">
+				<img class="logo" src="./assets/logo.svg" alt=""/>
+			</downloadable-image>
 
-					<p>This is the main version to be used for most purposes, as most of our uses are digital it is preferred to draw attention to the logo and related content.</p>
-				</dd>
+			<p>This is the main version to be used for most purposes, as most of our uses are digital it is preferred to draw attention to the logo and related content.</p>
 
-				<dt>Monochrome Logo</dt>
-				<dd>
-					<downloadable-image>
-						<img class="logo" src="./assets/logo-mono.svg" alt=""/>
-					</downloadable-image>
+			<h4>Monochrome Logo</h4>
+			<downloadable-image>
+				<img class="logo" src="./assets/logo-mono.svg" alt=""/>
+			</downloadable-image>
 
-					<p>When the regular logo is not suitable, the monochrome version can be used instead.</p>
-					<p>It is preferred to use the monochrome version for watermarks or other places where color is a constraint.</p>
-				</dd>
+			<p>When the regular logo is not suitable, the monochrome version can be used instead.</p>
+			<p>It is preferred to use the monochrome version for watermarks or other places where color is a constraint.</p>
 
-				<dt>Dark Contrast Logo</dt>
-				<dd>
-					<downloadable-image controls="false">
-						<img class="logo" src="./assets/logo-dark.svg" alt=""/>
-					</downloadable-image>
+			<h4>Dark Contrast Logo</h4>
+			<downloadable-image controls="false">
+				<img class="logo" src="./assets/logo-dark.svg" alt=""/>
+			</downloadable-image>
 
-					<p>It is preferred to use the dark contrast version for dark backgrounds where the regular logo would be unsuitable or draw too much attention to the logo instead of the content.</p>
-				</dd>
+			<p>It is preferred to use the dark contrast version for dark backgrounds where the regular logo would be unsuitable or draw too much attention to the logo instead of the content.</p>
 
-				<dt>Light Contrast Logo</dt>
-				<dd>
-					<downloadable-image controls="false">
-						<img class="logo" src="./assets/logo-light.svg" alt=""/>
-					</downloadable-image>
+			<h4>Light Contrast Logo</h4>
+			<downloadable-image controls="false">
+				<img class="logo" src="./assets/logo-light.svg" alt=""/>
+			</downloadable-image>
 
-					<p>It is preferred to use the light contrast version for light backgrounds where the regular logo would be unsuitable or draw too much attention to the logo instead of the content.</p>
-				</dd>
+			<p>It is preferred to use the light contrast version for light backgrounds where the regular logo would be unsuitable or draw too much attention to the logo instead of the content.</p>
 
-				<dt>Icon</dt>
-				<dd>
-					<downloadable-image controls="false">
-						<img class="logo" src="./assets/logo-icon.svg" alt=""/>
-					</downloadable-image>
+			<h4>Icon</h4>
+			<downloadable-image controls="false">
+				<img class="logo" src="./assets/logo-icon.svg" alt=""/>
+			</downloadable-image>
 
-					<p>A simplified version of the logo, it is the preferred version for small spaces where the regular logo would make the details be lost or "JS" be illegible.</p>
-				</dd>
-			</dl>
+			<p>A simplified version of the logo, it is the preferred version for small spaces where the regular logo would make the details be lost or "JS" be illegible.</p>
 		</article>
 
 		<article>
-			<h2 id="pictures-and-art">
-				Pictures & Art
-				<a class="header-link" href="#pictures-and-art">🔗</a>
-			</h2>
+			<h2 id="pictures-and-art">Pictures & Art</h2>
 
-			<h3 id="pictures-and-art--pictures">
-				Pictures
-				<a class="header-link" href="#pictures-and-art--pictures">🔗</a>
-			</h3>
+			<h3>Pictures</h3>
 
 			<p>Photos and other pictures used for events and promotion should always be well lit, display action and try to portrait people in a diverse and inclusive way. Display of brands should be avoided.</p>
 
-			<h3 id="pictures-and-art--art">
-				Art
-				<a class="header-link" href="#pictures-and-art--art">🔗</a>
-			</h3>
+			<h3>Art</h3>
 
 			<p>Drawings and other art used is advised to be simple in style so it can be more easily recognized at different sizes and have higher fidelity if printed. It is also suggested to keep to warm tones preferably <span class="text-theme">red</span> and the brand colors.</p>
 			<p>AI generated art is welcome.</p>
 
-			<h3 id="pictures-and-art--dos-and-donts">
-				Do's & Don'ts
-				<a class="header-link" href="#pictures-and-art--dos-and-donts">🔗</a>
-			</h3>
+			<h3 id="dos-and-donts">Do's & Don'ts</h3>
 
 			<!-- TODO: add dos and don'ts -->
 
@@ -466,19 +316,13 @@
 		</article>
 
 		<article>
-			<h2 id="graphic-material">
-				Graphic Material
-				<a class="header-link" href="#graphic-material">🔗</a>
-			</h2>
+			<h2>Graphic Material</h2>
 
 			<p>There are two main styles to be used: one has the CN Tower positioned to one of the sized and the other has only a part of the CN Tower logo.</p>
 			<p>The second style is for composing multiple things together, like a group of events. So when we join all items it comes together to form the CN Tower image.</p>
 			<p>Aside from those two styles, there are other two extras for printed material, they are best suited for application as watermarks or situations where colour use is a restriction.</p>
 
-			<h3 id="graphic-material--simple">
-				Simple
-				<a class="header-link" href="#graphic-material--simple">🔗</a>
-			</h3>
+			<h3>Events</h3>
 
 			<editable-image>
 				<img class="graphic" src="./assets/events.svg" alt=""/>
@@ -514,33 +358,21 @@
 				</fieldset>
 			</editable-image>
 
-			<h3 id="graphic-material--composed">
-				Composed
-				<a class="header-link" href="#graphic-material--composed">🔗</a>
-			</h3>
+			<h3>Composed</h3>
 
-			<h3 id="graphic-material--monochrome">
-				Monochrome
-				<a class="header-link" href="#graphic-material--monochrome">🔗</a>
-			</h3>
+			<h3>Monochrome</h3>
 
 			<downloadable-image file-name="mono-graphic">
 				<img class="graphic" src="./assets/monochrome-graphic.svg" alt=""/>
 			</downloadable-image>
 
-			<h3 id="graphic-material--line-art">
-				Line Art
-				<a class="header-link" href="#graphic-material--line-art">🔗</a>
-			</h3>
+			<h3>Line Art</h3>
 
 			<downloadable-image file-name="line-art-graphic">
 				<img class="graphic" src="./assets/line-art-graphic.svg" alt=""/>
 			</downloadable-image>
 
-			<h3 id="graphic-material--volunteer-badge">
-				Volunteer Badge
-				<a class="header-link" href="#graphic-material--volunteer-badge">🔗</a>
-			</h3>
+			<h3>Volunteer Badge</h3>
 
 			<downloadable-image file-name="volunteer-badge">
 				<img class="graphic" src="./assets/volunteer-badge.svg" alt=""/>
@@ -548,15 +380,9 @@
 		</article>
 
 		<article>
-			<h2 id="social-media">
-				Social Media
-				<a class="header-link" href="#social-media">🔗</a>
-			</h2>
+			<h2>Social Media</h2>
 
-			<h3 id="social-media-copy">
-				Copy text
-				<a class="header-link" href="#social-media-copy">🔗</a>
-			</h3>
+			<h3>Copy text</h3>
 
 			<p>Copy text should clearly state who the involved members of the community are. Emphasis should be placed first in individuals, then in organizers and lastly on directors. This aims to highlight contributions made by individuals and the underlying message that this is a community made by it's members.</p>
 
@@ -564,10 +390,7 @@
 
 			<p>Messages should be written in a plain, accessible and straightforward way.</p>
 
-			<h3 id="avatars">
-				Avatars
-				<a class="header-link" href="#avatars">🔗</a>
-			</h3>
+			<h3>Avatars</h3>
 
 			<p>Avatars should be used to identify the community and it's members. They should be used in social media profiles and other places where a profile picture is needed.</p>
 
@@ -577,10 +400,7 @@
 
 			<!-- TODO: add template -->
 
-			<h3 id="cover-images">
-				Cover Images
-				<a class="header-link" href="#cover-images">🔗</a>
-			</h3>
+			<h3>Cover Images</h3>
 
 			<p>The cover image to use for Toronto JS pages and profiles is simply the logo, right aligned to a plain background, as shown below.</p>
 
@@ -588,10 +408,7 @@
 
 			<!-- TODO: add template -->
 
-			<h3 id="posts">
-				Posts
-				<a class="header-link" href="#posts">🔗</a>
-			</h3>
+			<h3>Posts</h3>
 
 			<p>Posts should be made in a way that is accessible to everyone. This means that the text should be written in a way that is easy to understand and <em>images should have alt text.</em></p>
 
