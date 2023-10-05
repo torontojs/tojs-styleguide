@@ -7,7 +7,7 @@ import cssLink from './style.css?url';
  * @slot - The description/filler text to display.
  */
 export class FontBox extends HTMLElement {
-	static get observedAttributes() { return ['font-name', 'font-family']; }
+	static get observedAttributes() { return ['font-name', 'font-family', 'text-fit']; }
 
 	declare shadowRoot: ShadowRoot;
 
@@ -19,7 +19,11 @@ export class FontBox extends HTMLElement {
 		this.shadowRoot.innerHTML = `
 			<link rel="stylesheet" href="${cssLink}"/>
 			<blockquote>
-				<h1>${this.fontName}</h1>
+				<svg viewBox="0 0 200 20" xmlns="http://www.w3.org/2000/svg">
+					<text y="10" textLength="100%" dominant-baseline="middle" text-rendering="optimizeLegibility" font-size="10">
+						${this.fontName}
+					</text>
+				</svg>
 
 				<div>
 					<slot></slot>
@@ -32,7 +36,6 @@ export class FontBox extends HTMLElement {
 	 * The name of the font to display.
 	 *
 	 * @attr font-name
-	 * @type {string}
 	 */
 	get fontName() {
 		return this.getAttribute('font-name') ?? '';
@@ -48,7 +51,6 @@ export class FontBox extends HTMLElement {
 	 * The font family to display.
 	 *
 	 * @attr font-family
-	 * @type {string}
 	 */
 	get fontFamily() {
 		return this.getAttribute('font-family') ?? '';
@@ -60,8 +62,43 @@ export class FontBox extends HTMLElement {
 		this.shadowRoot.querySelector('blockquote')?.style.setProperty('--font-family', value);
 	}
 
+	/**
+	 * The multiplier to use for text fitting.
+	 *
+	 * @attr text-fit
+	 * @default 0.5
+	 */
+	get textFit() {
+		const valueAsNumber = Number(this.getAttribute('text-fit'));
+
+		// eslint-disable-next-line @typescript-eslint/no-magic-numbers
+		return Number.isNaN(valueAsNumber) ? 0.5 : valueAsNumber;
+	}
+
+	set textFit(value) {
+		this.setAttribute('text-fit', value.toString());
+	}
+
+	#fitText() {
+		const svg = this.shadowRoot.querySelector('svg') as SVGSVGElement;
+		const svgText = this.shadowRoot.querySelector('text') as SVGTextElement;
+		const text = svgText.textContent ?? '';
+		const textSize = text.length;
+
+		// eslint-disable-next-line @typescript-eslint/no-magic-numbers
+		const svgWidth = textSize * this.textFit * 10;
+
+		svg.setAttribute('viewBox', `0 0 ${svgWidth} 20`);
+	}
+
 	connectedCallback() {
-		// TODO: fit text to box
+		this.#fitText();
+
+		const resizeObserver = new ResizeObserver(() => {
+			this.#fitText();
+		});
+
+		resizeObserver.observe(this);
 	}
 
 	attributeChangedCallback(name: string, oldValue: string, newValue: string) {
