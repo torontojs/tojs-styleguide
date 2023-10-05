@@ -81,7 +81,6 @@ export class EditableImage extends HTMLElement {
 	 * The width of the image.
 	 *
 	 * @attr width
-	 * @type {number}
 	 * @default 2480
 	 */
 	get width() {
@@ -98,7 +97,6 @@ export class EditableImage extends HTMLElement {
 	 * The height of the image.
 	 *
 	 * @attr height
-	 * @type {number}
 	 * @default 2480
 	 */
 	get height() {
@@ -115,7 +113,6 @@ export class EditableImage extends HTMLElement {
 	 * The file name used when downloading the image.
 	 *
 	 * @attr file-name
-	 * @type {string}
 	 * @default 'image'
 	 */
 	get fileName() {

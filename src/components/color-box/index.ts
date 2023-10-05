@@ -35,7 +35,6 @@ export class ColorBox extends HTMLElement {
 	 * The background color of the image.
 	 *
 	 * @attr color
-	 * @type {string}
 	 * @default '#ED342F'
 	 */
 	get color() {
@@ -66,7 +65,6 @@ export class ColorBox extends HTMLElement {
 	 * The name of the color.
 	 *
 	 * @attr colorname
-	 * @type {string}
 	 * @default ''
 	 */
 	get colorName() {

@@ -75,7 +75,6 @@ export class DownloadableImage extends HTMLElement {
 	 * The background color of the image.
 	 *
 	 * @attr color
-	 * @type {string}
 	 * @default '#ED342F'
 	 */
 	get color() {
@@ -115,7 +114,6 @@ export class DownloadableImage extends HTMLElement {
 	 * The foreground color of the image.
 	 * This is automatically calculated based on the background color.
 	 *
-	 * @type {string}
 	 * @default '#ffffff'
 	 */
 	get foregroundColor() {
@@ -135,7 +133,6 @@ export class DownloadableImage extends HTMLElement {
 	 * This is automatically calculated based on the background color.
 	 * This is the opposite of foregroundColor.
 	 *
-	 * @type {string}
 	 * @default '#000000'
 	 */
 	get invertedForegroundColor() {
@@ -148,7 +145,6 @@ export class DownloadableImage extends HTMLElement {
 	 * The width of the image.
 	 *
 	 * @attr width
-	 * @type {number}
 	 * @default 2480
 	 */
 	get width() {
@@ -165,7 +161,6 @@ export class DownloadableImage extends HTMLElement {
 	 * The height of the image.
 	 *
 	 * @attr height
-	 * @type {number}
 	 * @default 2480
 	 */
 	get height() {
@@ -182,7 +177,6 @@ export class DownloadableImage extends HTMLElement {
 	 * The file name used when downloading the image.
 	 *
 	 * @attr file-name
-	 * @type {string}
 	 * @default 'image'
 	 */
 	get fileName() {
