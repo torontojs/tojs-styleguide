@@ -97,7 +97,7 @@
 		"unit-allowed-list": null,
 		"unit-disallowed-list": null,
 		"unit-no-unknown": true,
-		"value-keyword-case": "lower",
+		"value-keyword-case": ["lower", { "camelCaseSvgKeywords": true }],
 		"value-no-vendor-prefix": [true, { "ignoreValues": ["box", "grab", "no-grab"] }]
 	}
 }
