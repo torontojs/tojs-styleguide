@@ -11,6 +11,7 @@ blockquote svg {
 	height: auto;
 	padding-inline: var(--padding-inline);
 	padding-block: var(--padding-block);
+	fill: currentColor;
 }
 
 blockquote :is(*, ::slotted(*)) {

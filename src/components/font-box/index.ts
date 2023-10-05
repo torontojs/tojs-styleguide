@@ -44,7 +44,7 @@ export class FontBox extends HTMLElement {
 	set fontName(value) {
 		this.setAttribute('font-name', value);
 
-		(this.shadowRoot.querySelector('h1') as HTMLHeadingElement).textContent = value;
+		(this.shadowRoot.querySelector('text') as SVGTextElement).textContent = value;
 	}
 
 	/**
@@ -69,14 +69,19 @@ export class FontBox extends HTMLElement {
 	 * @default 0.5
 	 */
 	get textFit() {
-		const valueAsNumber = Number(this.getAttribute('text-fit'));
+		const valueAsNumber = Number.parseFloat(this.getAttribute('text-fit') ?? '0.5');
 
 		// eslint-disable-next-line @typescript-eslint/no-magic-numbers
 		return Number.isNaN(valueAsNumber) ? 0.5 : valueAsNumber;
 	}
 
 	set textFit(value) {
-		this.setAttribute('text-fit', value.toString());
+		// eslint-disable-next-line @typescript-eslint/no-magic-numbers
+		const normalizedValue = Number.isNaN(value) ? 0.5 : value;
+
+		this.setAttribute('text-fit', normalizedValue.toString());
+
+		this.#fitText();
 	}
 
 	#fitText() {
@@ -109,6 +114,9 @@ export class FontBox extends HTMLElement {
 					break;
 				case 'font-family':
 					this.fontFamily = newValue;
+					break;
+				case 'text-fit':
+					this.textFit = Number.parseFloat(newValue);
 					break;
 				default:
 					break;
