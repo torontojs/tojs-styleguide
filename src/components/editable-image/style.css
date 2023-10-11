@@ -9,17 +9,17 @@ slot {
 
 fieldset {
 	border-radius: 0.5rem;
-	border: thin solid currentcolor;
+	border: thin solid currentColor;
 }
 
 input {
-	border: thin solid currentcolor;
+	border: thin solid currentColor;
 	border-radius: 0.5rem;
 	padding: 0.3rem 0.5rem;
 }
 
 button {
-	border: thin solid currentcolor;
+	border: thin solid currentColor;
 	border-radius: 0.5rem;
 	padding: 0.3rem 0.5rem;
 }

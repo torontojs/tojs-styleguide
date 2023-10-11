@@ -54,7 +54,7 @@ button {
 	font-size: calc(var(--button-size) / 1.8);
 	line-height: calc(var(--button-size) / 2);
 	color: var(--font-color);
-	border: solid medium currentcolor;
+	border: solid medium currentColor;
 	border-radius: 100vmax;
 	background-color: var(--bg-color);
 	z-index: 1;
