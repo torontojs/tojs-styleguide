@@ -43,16 +43,23 @@
 		</g>
 	</defs>
 
-	<rect class="mode light" x="0" y="0" width="100%" height="100%" fill="#fff"/>
-	<rect class="mode dark" x="0" y="0" width="100%" height="100%" fill="#000"/>
+	<clipPath id="clip">
+		<rect x="0" y="0" width="100%" height="100%"/>
+	</clipPath>
+	<g clip-path="url(#clip)">
 
-	<g class="side left">
-		<use xlink:href="#tower" x="-3030"/>
-		<use class="mode light" xlink:href="#text-container-light" x="950"/>
-		<use class="mode dark" xlink:href="#text-container-dark" x="950"/>
+		<rect class="mode light" x="0" y="0" width="100%" height="100%" fill="#fff"/>
+		<rect class="mode dark" x="0" y="0" width="100%" height="100%" fill="#000"/>
+
+		<g class="side left">
+			<use xlink:href="#tower" x="-3030"/>
+			<use class="mode light" xlink:href="#text-container-light" x="950"/>
+			<use class="mode dark" xlink:href="#text-container-dark" x="950"/>
+		</g>
+		<g class="side right">
+			<use xlink:href="#tower"/>
+			<use class="mode light" xlink:href="#text-container-light"/>
+			<use class="mode dark" xlink:href="#text-container-dark"/>
+		</g>
 	</g>
-	<g class="side right">
-		<use xlink:href="#tower"/>
-		<use class="mode light" xlink:href="#text-container-light"/>
-		<use class="mode dark" xlink:href="#text-container-dark"/>
 </svg>
