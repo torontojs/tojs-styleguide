@@ -45,7 +45,7 @@
 	--scrollbar-bg: rgba(0, 0, 0, 0.2);
 
 	color-scheme: light;
-	accent-color: var(--accent-color);
+	accent-color: var(--theme-color);
 }
 
 .theme-dark {

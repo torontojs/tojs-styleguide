@@ -1,27 +1,12 @@
+@import '../../css/forms.css';
+
 :host {
 	display: block;
 	contain: content;
 }
 
-slot {
+slot:not([name]) {
 	display: none;
-}
-
-fieldset {
-	border-radius: 0.5rem;
-	border: thin solid currentColor;
-}
-
-input {
-	border: thin solid currentColor;
-	border-radius: 0.5rem;
-	padding: 0.3rem 0.5rem;
-}
-
-button {
-	border: thin solid currentColor;
-	border-radius: 0.5rem;
-	padding: 0.3rem 0.5rem;
 }
 
 #wrapper {
@@ -35,10 +20,6 @@ button {
 #controls {
 	margin-block-start: 1rem;
 	text-align: center;
-}
-
-#controls ::slotted(*) {
-	margin-block-start: 1rem;
 	display: flex;
 	gap: 1rem;
 	place-items: center;

@@ -1,3 +1,5 @@
+@import '../../css/forms.css';
+
 :host {
 	display: block;
 	contain: content;
@@ -5,27 +7,6 @@
 
 slot {
 	display: none;
-}
-
-fieldset {
-	border-radius: 0.5rem;
-	border: thin solid currentColor;
-}
-
-input {
-	border: thin solid currentColor;
-	border-radius: 0.5rem;
-	padding: 0.3rem 0.5rem;
-}
-
-input[type="color"] {
-	padding: 0;
-}
-
-button {
-	border: thin solid currentColor;
-	border-radius: 0.5rem;
-	padding: 0.3rem 0.5rem;
 }
 
 #wrapper {

@@ -3,6 +3,7 @@
 @import './text.css';
 @import './colors.css';
 @import './logo.css';
+@import './forms.css';
 
 html, body {
 	height: 100%;
