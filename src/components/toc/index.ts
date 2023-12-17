@@ -22,19 +22,17 @@ import cssLink from './style.css?url';
  */
 
 export class TocList extends HTMLElement {
-	declare shadowRoot: ShadowRoot;
-
 	constructor() {
 		super();
 
-		this.attachShadow({ mode: 'open' });
-
-		this.shadowRoot.innerHTML = `
+		this.innerHTML = `
 			<link rel="stylesheet" href="${cssLink}"/>
-			<nav popover id="toc">
-			</nav>
+			<dialog id="toc-container">
+				<nav id="toc">
+				</nav>
+			</dialog>
 
-			<button type="button" popovertarget="toc">≡</button>
+			<button type="button" id="toc-button">≡</button>
 		`;
 	}
 
@@ -112,24 +110,30 @@ export class TocList extends HTMLElement {
 	}
 
 	connectedCallback() {
-		const tocContainer = this.shadowRoot.querySelector('#toc') as HTMLElement;
+		const tocButton = this.querySelector('#toc-button') as HTMLButtonElement;
+		const tocContainer = this.querySelector('#toc-container') as HTMLDialogElement;
+		const tocNav = this.querySelector('#toc') as HTMLElement;
 		const tocHeader = document.createElement('a');
 		const pageHeader = document.querySelector('h1') as HTMLHeadingElement;
 
 		tocHeader.href = `#${pageHeader.id}`;
 		tocHeader.textContent = pageHeader.textContent;
 
-		tocContainer.appendChild(tocHeader);
+		tocNav.appendChild(tocHeader);
 
 		const toc = this.#createList([...document.querySelectorAll('h2, h3, h4, h5, h6')]);
 
-		tocContainer.appendChild(toc);
+		tocNav.appendChild(toc);
+
+		tocButton.addEventListener('click', () => {
+			tocContainer.showModal();
+		});
 
 		tocContainer.addEventListener('click', (evt) => {
 			const target = evt.target as HTMLElement;
 
-			if (target.matches('a')) {
-				tocContainer.hidePopover();
+			if (target.matches('a') || target.matches('dialog')) {
+				tocContainer.close();
 			}
 		});
 	}
