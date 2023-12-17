@@ -10,7 +10,7 @@ import cssLink from './style.css?url';
  * @element color-box
  */
 export class ColorBox extends HTMLElement {
-	static get observedAttributes() { return ['color', 'colorname']; }
+	static get observedAttributes() { return ['color', 'color-name']; }
 
 	#root: ShadowRoot;
 
@@ -64,15 +64,17 @@ export class ColorBox extends HTMLElement {
 	/**
 	 * The name of the color.
 	 *
-	 * @attr colorname
+	 * @attr color-name
 	 * @default ''
 	 */
 	get colorName() {
-		return this.getAttribute('colorname') ?? '';
+		return this.getAttribute('color-name') ?? '';
 	}
 
 	set colorName(value) {
-		this.setAttribute('colorname', value);
+		this.setAttribute('color-name', value);
+
+		(this.#root.getElementById('color-name') as HTMLSpanElement).innerText = value;
 	}
 
 	#getTextColorForBgColor(color: string) {
@@ -147,7 +149,7 @@ export class ColorBox extends HTMLElement {
 				case 'color':
 					this.color = newValue;
 					break;
-				case 'colorname':
+				case 'color-name':
 					this.colorName = newValue;
 					break;
 				default:
