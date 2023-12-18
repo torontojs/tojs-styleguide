@@ -1,0 +1,19 @@
+:host *, :host *::before, :host *::after {
+	box-sizing: border-box;
+}
+
+blockquote {
+	font-family: var(--font-family);
+}
+
+blockquote svg {
+	width: 100%;
+	height: auto;
+	padding-inline: var(--padding-inline);
+	padding-block: var(--padding-block);
+	fill: currentColor;
+}
+
+blockquote :is(*, ::slotted(*)) {
+	font-family: inherit;
+}

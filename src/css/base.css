@@ -1,0 +1,49 @@
+@import './vars.css';
+@import './fonts.css';
+@import './text.css';
+@import './colors.css';
+@import './logo.css';
+@import './forms.css';
+
+html, body {
+	height: 100%;
+	width: 100%;
+	margin: 0;
+}
+
+body {
+	box-sizing: border-box;
+
+	font-family: Montserrat, system-ui, 'Segoe UI', 'Segoe UI Emoji', emoji, sans-serif;
+	font-size: var(--body-text);
+	font-weight: 500;
+
+	display: flex;
+	flex-direction: column;
+	justify-content: stretch;
+	align-items: stretch;
+
+	background: var(--bg-color);
+	color: var(--text-color);
+
+	scrollbar-width: thin;
+	scrollbar-color: var(--theme-color) var(--scrollbar-bg);
+}
+
+*, *::after, *::before {
+	box-sizing: inherit;
+	font-family: inherit;
+}
+
+main {
+	padding-inline: var(--padding-inline);
+	width: clamp(20rem, calc(100% - (var(--button-size) * 3)), 60rem);
+	margin-inline: auto;
+}
+
+#header-logo {
+	width: 15rem;
+	height: 15rem;
+	margin-inline: auto;
+	margin-block-start: var(--margin-inline);
+}

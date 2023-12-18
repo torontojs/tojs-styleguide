@@ -1,0 +1,69 @@
+#toc-container a {
+	color: var(--theme-color);
+	text-decoration-skip: spaces;
+	text-decoration-skip-ink: auto;
+	text-decoration-color: var(--theme-color);
+}
+
+#toc-container a:visited {
+	text-decoration-color: var(--secondary-color);
+}
+
+#toc-container a:hover { color: var(--accent-color); }
+
+#toc-container a:focus {
+	color: var(--accent-color);
+	text-decoration-color: var(--accent-color);
+	outline: var(--border-width) dotted var(--theme-color);
+}
+
+#toc-container a:active {
+	color: var(--accent-color);
+	text-decoration-color: var(--accent-color);
+}
+
+#toc-container {
+	position: fixed;
+	inset-inline: 0;
+	inset-block: 0 auto;
+
+	width: clamp(20rem, 50vw, 45rem);
+	height: 100%;
+	max-height: 100vh;
+	background: var(--bg-color);
+	border: var(--border-width) solid var(--bg-color);
+	border-inline-end-color: var(--theme-color);
+	padding: 0;
+	margin: 0;
+
+	overflow: auto;
+}
+
+#toc-container nav {
+	width: 100%;
+	height: 100%;
+	padding: var(--padding-block) var(--padding-inline);
+}
+
+#toc-container::backdrop {
+	background-color: rgba(0, 0, 0, 0.7);
+	backdrop-filter: blur(5px);
+}
+
+#toc-button {
+	font-family: inherit;
+	font-size: calc(var(--button-size) / 1.8);
+	line-height: calc(var(--button-size) / 2);
+	color: var(--font-color);
+	border: solid medium currentColor;
+	border-radius: 100vmax;
+	background-color: var(--bg-color);
+	z-index: 1;
+	width: var(--button-size);
+	height: var(--button-size);
+	text-align: center;
+	margin: var(--margin-inline);
+	position: fixed;
+	inset-block-end: 0;
+	inset-inline-start: 0;
+}

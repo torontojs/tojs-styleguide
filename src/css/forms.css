@@ -1,0 +1,20 @@
+fieldset {
+	border-radius: var(--border-radius);
+	border: solid var(--theme-color) var(--border-width);
+}
+
+input, textarea, button {
+	font: inherit;
+	padding: var(--padding-block) var(--padding-inline);
+	border-radius: var(--border-radius);
+	border: solid var(--theme-color) var(--border-width);
+	background-color: var(--bg-color);
+}
+
+button {
+	background-color: var(--theme-color);
+	border-color: currentColor;
+	padding: var(--padding-inline);
+}
+
+input[type="color"] { padding: 0; }

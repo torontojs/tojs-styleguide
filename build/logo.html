@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+	<title>Icon generator</title>
+	<style>
+		body {
+			background: #ee2e24;
+			width: 100vw;
+			height: 100vh;
+			margin: 0;
+			padding: 0;
+			overflow: hidden;
+			box-sizing: border-box;
+			display: grid;
+			place-items: center;
+			align-content: center;
+		}
+
+		#logo {
+			box-sizing: border-box;
+			object-fit: contain;
+
+			width: 100vmin;
+			height: 100vmin;
+		}
+
+		@media (prefers-color-scheme: dark) {
+			body {
+				background: transparent;
+			}
+		}
+	</style>
+</head>
+<body>
+	<img id="logo" src="../public/icons/favicon.svg" alt="">
+</body>
+</html>

@@ -1,0 +1,25 @@
+:host {
+	--color: black;
+	--text-color: white;
+	--size: 12rem;
+
+	box-sizing: border-box;
+	width: var(--size);
+	height: var(--size);
+
+	text-align: center;
+
+	display: inline-block;
+	margin: var(--margin-inline);
+	padding: var(--padding-inline);
+
+	border-radius: var(--border-radius);
+	border-width: var(--border-width);
+	border-color: var(--border-color);
+	border-style: solid;
+
+	background-color: var(--color);
+	color: var(--text-color);
+}
+
+code { user-select: all; }
