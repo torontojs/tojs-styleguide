@@ -1,3 +1,4 @@
+
 # Toronto JS Style Guide
 This is the project for Toronto JS' Style Guide. It contains the documentation for how to use and create graphical assets for the community, following a set of guidelines.
 
