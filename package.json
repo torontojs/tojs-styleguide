@@ -1,80 +1,89 @@
 {
-	"name": "tojs-styleguide",
-	"private": true,
-	"version": "2.0.0",
-	"homepage": "https://github.com/torontojs/tojs-styleguide",
-	"license": "MIT",
-	"browser": "./docs/index.html",
-	"type": "module",
-	"repository": {
-		"type": "git",
-		"url": "git+https://github.com/torontojs/tojs-styleguide.git"
-	},
-	"engines": {
-		"node": ">=18.0.0"
-	},
-	"volta": {
-		"node": "18.14.0"
-	},
-	"scripts": {
-		"postinstall": "husky install",
-		"start": "vite",
-		"typecheck": "tsc --noEmit",
-		"lint:js": "eslint src --ext .js,.mjs,.ts,.mts --fix --ignore-path .gitignore",
-		"lint:css": "stylelint **/*.css --fix",
-		"lint": "npm run typecheck && npm run lint:js && npm run lint:css",
-		"lint-staged": "lint-staged",
-		"build": "vite build",
-		"build:icons-transparent": "pwa-asset-generator build/logo.html --type png --maskable false --icon-only --scrape false --dark-mode --opaque false --log false public/icons/transparent",
-		"build:icons-maskable": "pwa-asset-generator build/logo.html --type png --maskable false --icon-only --log false public/icons/maskable",
-		"build:splash": "pwa-asset-generator build/logo.html --type png --splash-only --log false public/splash",
-		"build:assets": "npm run build:icons-transparent && npm run build:icons-maskable && npm run build:splash",
-		"optimize:svg": "svgo --multipass --eol lf --final-newline --recursive --folder public --output dist",
-		"optimize:png": "oxipng --opt max --strip safe --recursive --alpha --fix --zopfli --dir dist public/**/*.png",
-		"prepreview": "npm run build",
-		"preview": "vite preview --port 3000",
-		"test": "vitest",
-		"test:coverage": "vitest run --coverage"
-	},
-	"devDependencies": {
-		"@commitlint/cli": "^17.6.6",
-		"@commitlint/config-conventional": "^17.6.6",
-		"@types/node": "^20.4.2",
-		"@typescript-eslint/eslint-plugin": "^6.1.0",
-		"@typescript-eslint/parser": "^6.1.0",
-		"@vitest/coverage-v8": "^0.33.0",
-		"eslint": "^8.45.0",
-		"husky": "^8.0.3",
-		"lint-staged": "^13.2.3",
-		"oxipng-bin": "^1.0.0",
-		"pwa-asset-generator": "^6.3.1",
-		"stylelint": "^15.10.1",
-		"svgo": "^3.0.2",
-		"typed-query-selector": "^2.11.0",
-		"typescript": "^5.1.6",
-		"vite": "^4.4.4",
-		"vite-plugin-html-minifier": "^1.0.3",
-		"vite-plugin-pwa": "^0.16.4",
-		"vitest": "^0.33.0"
-	},
-	"lint-staged": {
-		"*.ts": [
-			"eslint --ext .ts --fix",
-			"vitest related"
-		],
-		"*.js": [
-			"eslint --ext .js --fix",
-			"vitest related"
-		]
-	},
-	"commitlint": {
-		"extends": [
-			"@commitlint/config-conventional"
-		]
-	},
-	"overrides": {
-		"has": "npm:@nolyfill/has@latest",
-		"isarray": "npm:@nolyfill/isarray@latest",
-		"string.prototype.matchall": "npm:@nolyfill/string.prototype.matchall@latest"
-	}
+  "name": "tojs-styleguide",
+  "private": true,
+  "version": "2.0.0",
+  "homepage": "https://github.com/torontojs/tojs-styleguide",
+  "license": "MIT",
+  "browser": "./docs/index.html",
+  "type": "module",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/torontojs/tojs-styleguide.git"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "volta": {
+    "node": "18.14.0"
+  },
+  "scripts": {
+    "postinstall": "husky install",
+    "start": "vite",
+    "typecheck": "tsc --noEmit",
+    "lint:js": "eslint src --ext .js,.mjs,.ts,.mts --fix --ignore-path .gitignore",
+    "lint": "npm run typecheck && npm run lint:js",
+    "lint-staged": "lint-staged",
+    "build": "vite build",
+    "prepreview": "npm run build",
+    "preview": "vite preview --port 3000",
+    "test": "vitest",
+    "test:coverage": "vitest run --coverage",
+    "storybook": "storybook dev -p 6006",
+    "build-storybook": "storybook build"
+  },
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^17.6.6",
+    "@commitlint/config-conventional": "^17.6.6",
+    "@storybook/addon-essentials": "^7.6.7",
+    "@storybook/addon-interactions": "^7.6.7",
+    "@storybook/addon-links": "^7.6.7",
+    "@storybook/addon-onboarding": "^1.0.10",
+    "@storybook/blocks": "^7.6.7",
+    "@storybook/react": "^7.6.7",
+    "@storybook/react-vite": "^7.6.7",
+    "@storybook/test": "^7.6.7",
+    "@types/node": "^20.4.2",
+    "@types/react": "^18.2.43",
+    "@types/react-dom": "^18.2.17",
+    "@typescript-eslint/eslint-plugin": "^6.1.0",
+    "@typescript-eslint/parser": "^6.1.0",
+    "@vitejs/plugin-react": "^4.2.1",
+    "@vitest/coverage-v8": "^0.33.0",
+    "eslint": "^8.55.0",
+    "eslint-plugin-react": "^7.33.2",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "eslint-plugin-react-refresh": "^0.4.5",
+    "eslint-plugin-storybook": "^0.6.15",
+    "husky": "^8.0.3",
+    "lint-staged": "^13.2.3",
+    "storybook": "^7.6.7",
+    "typed-query-selector": "^2.11.0",
+    "typescript": "^5.1.6",
+    "vite": "^4.4.4",
+    "vitest": "^0.33.0"
+  },
+  "lint-staged": {
+    "*.ts": [
+      "eslint --ext .ts --fix",
+      "vitest related"
+    ],
+    "*.js": [
+      "eslint --ext .js --fix",
+      "vitest related"
+    ]
+  },
+  "commitlint": {
+    "extends": [
+      "@commitlint/config-conventional"
+    ]
+  },
+  "overrides": {
+    "has": "npm:@nolyfill/has@latest",
+    "isarray": "npm:@nolyfill/isarray@latest",
+    "string.prototype.matchall": "npm:@nolyfill/string.prototype.matchall@latest"
+  }
 }

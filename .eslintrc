@@ -1,9 +1,10 @@
 {
 	"root": true,
+	"settings": { "react": { "version": "18.2" } },
 	"parser": "@typescript-eslint/parser",
 	"parserOptions": {
 		"sourceType": "module",
-		"ecmaVersion": 2021,
+		"ecmaVersion": "latest",
 		"ecmaFeatures": {
 			"impliedStrict": true
 		},
@@ -15,8 +16,9 @@
 		"worker": true,
 		"shared-node-browser": true
 	},
+	"extends": ["eslint:recommended", "plugin:react/recommended", "plugin:react/jsx-runtime", "plugin:react-hooks/recommended", "plugin:storybook/recommended"],
 	"ignorePatterns": ["lib/**", "dist/**", "docs/**"],
-	"plugins": ["@typescript-eslint"],
+	"plugins": ["@typescript-eslint", "react-refresh"],
 	"rules": {
 		// Possible errors
 		"for-direction": "error",
@@ -632,6 +634,11 @@
 			"named": "never",
 			"asyncArrow": "always"
 		}],
-		"@typescript-eslint/space-infix-ops": ["error", { "int32Hint": false }]
+		"@typescript-eslint/space-infix-ops": ["error", { "int32Hint": false }],
+		//react refresh
+		"react-refresh/only-export-components": [
+			"warn",
+			{ "allowConstantExport": true }
+		  ]
 	}
 }
