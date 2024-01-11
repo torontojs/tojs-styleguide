@@ -23,13 +23,14 @@
     "lint:js": "eslint src --ext .js,.mjs,.ts,.mts --fix --ignore-path .gitignore",
     "lint": "npm run typecheck && npm run lint:js",
     "lint-staged": "lint-staged",
-    "build": "vite build",
-    "prepreview": "npm run build",
+    "build:vite": "vite build",
+    "prepreview": "npm run build:vite",
     "preview": "vite preview --port 3000",
     "test": "vitest",
     "test:coverage": "vitest run --coverage",
     "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build"
+    "build:storybook": "storybook build",
+    "build": "npm run build:vite && npm run build:storybook"
   },
   "dependencies": {
     "react": "^18.2.0",
