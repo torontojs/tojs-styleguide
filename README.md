@@ -5,7 +5,7 @@ This is the project for Toronto JS' Style Guide. It contains the documentation f
 ## Rquirements
 
 - Node.js v20.0.0 or higher
-- Install (volta)[https://volta.sh/] globally
+- Install [volta](https://volta.sh/) globally
 
 ## Run locally
 
